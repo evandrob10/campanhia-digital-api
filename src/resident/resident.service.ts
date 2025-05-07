@@ -1,11 +1,25 @@
 import { Injectable } from '@nestjs/common';
 import { CreateResidentDto } from './dto/create-resident.dto';
 import { UpdateResidentDto } from './dto/update-resident.dto';
+import { PrismaService } from 'src/prisma-client/prisma-client.service';
 
 @Injectable()
 export class ResidentService {
+    constructor(private readonly prisma: PrismaService) {}
+
     create(createResidentDto: CreateResidentDto) {
-        return 'This action adds a new resident';
+        const response = this.prisma.resident.create({
+            data: {
+                name: createResidentDto.name,
+                lastName: createResidentDto.lastName,
+                phone: createResidentDto.phone,
+                email: createResidentDto.email,
+                password: createResidentDto.password,
+                residence_id: createResidentDto.residence_id,
+                staff_id: createResidentDto.staffs,
+            },
+        });
+        return response;
     }
 
     findAll() {

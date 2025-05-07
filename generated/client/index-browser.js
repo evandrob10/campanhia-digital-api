@@ -138,22 +138,26 @@ exports.Prisma.ResidentScalarFieldEnum = {
   name: 'name',
   lastName: 'lastName',
   phone: 'phone',
-  telefone: 'telefone',
   email: 'email',
   password: 'password',
+  staff_id: 'staff_id',
   residence_id: 'residence_id'
 };
 
 exports.Prisma.StaffScalarFieldEnum = {
   id: 'id',
   admin_residence: 'admin_residence',
-  admin_address: 'admin_address',
-  ResidentToStaff_id: 'ResidentToStaff_id'
+  admin_address: 'admin_address'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 

@@ -38,18 +38,17 @@ model Resident {
   name         String
   lastName     String
   phone        String
-  telefone     String
   email        String    @unique
   password     String
-  staffs       Staff?
+  staff        Staff?    @relation(fields: [staff_id], references: [id])
+  staff_id     Int?      @unique
   residence    Residence @relation(fields: [residence_id], references: [id])
   residence_id Int
 }
 
 model Staff {
-  id                 Int      @id @default(autoincrement())
-  admin_residence    Boolean
-  admin_address      Boolean
-  ResidentToStaff    Resident @relation(fields: [ResidentToStaff_id], references: [id])
-  ResidentToStaff_id Int      @unique
+  id              Int       @id @default(autoincrement())
+  admin_residence Boolean
+  admin_address   Boolean
+  ResidentToStaff Resident?
 }

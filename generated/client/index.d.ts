@@ -3462,11 +3462,13 @@ export namespace Prisma {
 
   export type ResidentAvgAggregateOutputType = {
     id: number | null
+    staff_id: number | null
     residence_id: number | null
   }
 
   export type ResidentSumAggregateOutputType = {
     id: number | null
+    staff_id: number | null
     residence_id: number | null
   }
 
@@ -3475,9 +3477,9 @@ export namespace Prisma {
     name: string | null
     lastName: string | null
     phone: string | null
-    telefone: string | null
     email: string | null
     password: string | null
+    staff_id: number | null
     residence_id: number | null
   }
 
@@ -3486,9 +3488,9 @@ export namespace Prisma {
     name: string | null
     lastName: string | null
     phone: string | null
-    telefone: string | null
     email: string | null
     password: string | null
+    staff_id: number | null
     residence_id: number | null
   }
 
@@ -3497,9 +3499,9 @@ export namespace Prisma {
     name: number
     lastName: number
     phone: number
-    telefone: number
     email: number
     password: number
+    staff_id: number
     residence_id: number
     _all: number
   }
@@ -3507,11 +3509,13 @@ export namespace Prisma {
 
   export type ResidentAvgAggregateInputType = {
     id?: true
+    staff_id?: true
     residence_id?: true
   }
 
   export type ResidentSumAggregateInputType = {
     id?: true
+    staff_id?: true
     residence_id?: true
   }
 
@@ -3520,9 +3524,9 @@ export namespace Prisma {
     name?: true
     lastName?: true
     phone?: true
-    telefone?: true
     email?: true
     password?: true
+    staff_id?: true
     residence_id?: true
   }
 
@@ -3531,9 +3535,9 @@ export namespace Prisma {
     name?: true
     lastName?: true
     phone?: true
-    telefone?: true
     email?: true
     password?: true
+    staff_id?: true
     residence_id?: true
   }
 
@@ -3542,9 +3546,9 @@ export namespace Prisma {
     name?: true
     lastName?: true
     phone?: true
-    telefone?: true
     email?: true
     password?: true
+    staff_id?: true
     residence_id?: true
     _all?: true
   }
@@ -3640,9 +3644,9 @@ export namespace Prisma {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
+    staff_id: number | null
     residence_id: number
     _count: ResidentCountAggregateOutputType | null
     _avg: ResidentAvgAggregateOutputType | null
@@ -3670,11 +3674,11 @@ export namespace Prisma {
     name?: boolean
     lastName?: boolean
     phone?: boolean
-    telefone?: boolean
     email?: boolean
     password?: boolean
+    staff_id?: boolean
     residence_id?: boolean
-    staffs?: boolean | Resident$staffsArgs<ExtArgs>
+    staff?: boolean | Resident$staffArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resident"]>
 
@@ -3683,10 +3687,11 @@ export namespace Prisma {
     name?: boolean
     lastName?: boolean
     phone?: boolean
-    telefone?: boolean
     email?: boolean
     password?: boolean
+    staff_id?: boolean
     residence_id?: boolean
+    staff?: boolean | Resident$staffArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resident"]>
 
@@ -3695,10 +3700,11 @@ export namespace Prisma {
     name?: boolean
     lastName?: boolean
     phone?: boolean
-    telefone?: boolean
     email?: boolean
     password?: boolean
+    staff_id?: boolean
     residence_id?: boolean
+    staff?: boolean | Resident$staffArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resident"]>
 
@@ -3707,28 +3713,30 @@ export namespace Prisma {
     name?: boolean
     lastName?: boolean
     phone?: boolean
-    telefone?: boolean
     email?: boolean
     password?: boolean
+    staff_id?: boolean
     residence_id?: boolean
   }
 
-  export type ResidentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "lastName" | "phone" | "telefone" | "email" | "password" | "residence_id", ExtArgs["result"]["resident"]>
+  export type ResidentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "lastName" | "phone" | "email" | "password" | "staff_id" | "residence_id", ExtArgs["result"]["resident"]>
   export type ResidentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    staffs?: boolean | Resident$staffsArgs<ExtArgs>
+    staff?: boolean | Resident$staffArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
   }
   export type ResidentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    staff?: boolean | Resident$staffArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
   }
   export type ResidentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    staff?: boolean | Resident$staffArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
   }
 
   export type $ResidentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Resident"
     objects: {
-      staffs: Prisma.$StaffPayload<ExtArgs> | null
+      staff: Prisma.$StaffPayload<ExtArgs> | null
       residence: Prisma.$ResidencePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -3736,9 +3744,9 @@ export namespace Prisma {
       name: string
       lastName: string
       phone: string
-      telefone: string
       email: string
       password: string
+      staff_id: number | null
       residence_id: number
     }, ExtArgs["result"]["resident"]>
     composites: {}
@@ -4134,7 +4142,7 @@ export namespace Prisma {
    */
   export interface Prisma__ResidentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    staffs<T extends Resident$staffsArgs<ExtArgs> = {}>(args?: Subset<T, Resident$staffsArgs<ExtArgs>>): Prisma__StaffClient<$Result.GetResult<Prisma.$StaffPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    staff<T extends Resident$staffArgs<ExtArgs> = {}>(args?: Subset<T, Resident$staffArgs<ExtArgs>>): Prisma__StaffClient<$Result.GetResult<Prisma.$StaffPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     residence<T extends ResidenceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResidenceDefaultArgs<ExtArgs>>): Prisma__ResidenceClient<$Result.GetResult<Prisma.$ResidencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4169,9 +4177,9 @@ export namespace Prisma {
     readonly name: FieldRef<"Resident", 'String'>
     readonly lastName: FieldRef<"Resident", 'String'>
     readonly phone: FieldRef<"Resident", 'String'>
-    readonly telefone: FieldRef<"Resident", 'String'>
     readonly email: FieldRef<"Resident", 'String'>
     readonly password: FieldRef<"Resident", 'String'>
+    readonly staff_id: FieldRef<"Resident", 'Int'>
     readonly residence_id: FieldRef<"Resident", 'Int'>
   }
     
@@ -4567,9 +4575,9 @@ export namespace Prisma {
   }
 
   /**
-   * Resident.staffs
+   * Resident.staff
    */
-  export type Resident$staffsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Resident$staffArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Staff
      */
@@ -4618,66 +4626,56 @@ export namespace Prisma {
 
   export type StaffAvgAggregateOutputType = {
     id: number | null
-    ResidentToStaff_id: number | null
   }
 
   export type StaffSumAggregateOutputType = {
     id: number | null
-    ResidentToStaff_id: number | null
   }
 
   export type StaffMinAggregateOutputType = {
     id: number | null
     admin_residence: boolean | null
     admin_address: boolean | null
-    ResidentToStaff_id: number | null
   }
 
   export type StaffMaxAggregateOutputType = {
     id: number | null
     admin_residence: boolean | null
     admin_address: boolean | null
-    ResidentToStaff_id: number | null
   }
 
   export type StaffCountAggregateOutputType = {
     id: number
     admin_residence: number
     admin_address: number
-    ResidentToStaff_id: number
     _all: number
   }
 
 
   export type StaffAvgAggregateInputType = {
     id?: true
-    ResidentToStaff_id?: true
   }
 
   export type StaffSumAggregateInputType = {
     id?: true
-    ResidentToStaff_id?: true
   }
 
   export type StaffMinAggregateInputType = {
     id?: true
     admin_residence?: true
     admin_address?: true
-    ResidentToStaff_id?: true
   }
 
   export type StaffMaxAggregateInputType = {
     id?: true
     admin_residence?: true
     admin_address?: true
-    ResidentToStaff_id?: true
   }
 
   export type StaffCountAggregateInputType = {
     id?: true
     admin_residence?: true
     admin_address?: true
-    ResidentToStaff_id?: true
     _all?: true
   }
 
@@ -4771,7 +4769,6 @@ export namespace Prisma {
     id: number
     admin_residence: boolean
     admin_address: boolean
-    ResidentToStaff_id: number
     _count: StaffCountAggregateOutputType | null
     _avg: StaffAvgAggregateOutputType | null
     _sum: StaffSumAggregateOutputType | null
@@ -4797,54 +4794,43 @@ export namespace Prisma {
     id?: boolean
     admin_residence?: boolean
     admin_address?: boolean
-    ResidentToStaff_id?: boolean
-    ResidentToStaff?: boolean | ResidentDefaultArgs<ExtArgs>
+    ResidentToStaff?: boolean | Staff$ResidentToStaffArgs<ExtArgs>
   }, ExtArgs["result"]["staff"]>
 
   export type StaffSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     admin_residence?: boolean
     admin_address?: boolean
-    ResidentToStaff_id?: boolean
-    ResidentToStaff?: boolean | ResidentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["staff"]>
 
   export type StaffSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     admin_residence?: boolean
     admin_address?: boolean
-    ResidentToStaff_id?: boolean
-    ResidentToStaff?: boolean | ResidentDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["staff"]>
 
   export type StaffSelectScalar = {
     id?: boolean
     admin_residence?: boolean
     admin_address?: boolean
-    ResidentToStaff_id?: boolean
   }
 
-  export type StaffOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "admin_residence" | "admin_address" | "ResidentToStaff_id", ExtArgs["result"]["staff"]>
+  export type StaffOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "admin_residence" | "admin_address", ExtArgs["result"]["staff"]>
   export type StaffInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ResidentToStaff?: boolean | ResidentDefaultArgs<ExtArgs>
+    ResidentToStaff?: boolean | Staff$ResidentToStaffArgs<ExtArgs>
   }
-  export type StaffIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ResidentToStaff?: boolean | ResidentDefaultArgs<ExtArgs>
-  }
-  export type StaffIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ResidentToStaff?: boolean | ResidentDefaultArgs<ExtArgs>
-  }
+  export type StaffIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type StaffIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $StaffPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Staff"
     objects: {
-      ResidentToStaff: Prisma.$ResidentPayload<ExtArgs>
+      ResidentToStaff: Prisma.$ResidentPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       admin_residence: boolean
       admin_address: boolean
-      ResidentToStaff_id: number
     }, ExtArgs["result"]["staff"]>
     composites: {}
   }
@@ -5239,7 +5225,7 @@ export namespace Prisma {
    */
   export interface Prisma__StaffClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    ResidentToStaff<T extends ResidentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResidentDefaultArgs<ExtArgs>>): Prisma__ResidentClient<$Result.GetResult<Prisma.$ResidentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    ResidentToStaff<T extends Staff$ResidentToStaffArgs<ExtArgs> = {}>(args?: Subset<T, Staff$ResidentToStaffArgs<ExtArgs>>): Prisma__ResidentClient<$Result.GetResult<Prisma.$ResidentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5272,7 +5258,6 @@ export namespace Prisma {
     readonly id: FieldRef<"Staff", 'Int'>
     readonly admin_residence: FieldRef<"Staff", 'Boolean'>
     readonly admin_address: FieldRef<"Staff", 'Boolean'>
-    readonly ResidentToStaff_id: FieldRef<"Staff", 'Int'>
   }
     
 
@@ -5520,10 +5505,6 @@ export namespace Prisma {
      * The data used to create many Staff.
      */
     data: StaffCreateManyInput | StaffCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: StaffIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5594,10 +5575,6 @@ export namespace Prisma {
      * Limit how many Staff to update.
      */
     limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: StaffIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5667,6 +5644,25 @@ export namespace Prisma {
   }
 
   /**
+   * Staff.ResidentToStaff
+   */
+  export type Staff$ResidentToStaffArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resident
+     */
+    select?: ResidentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resident
+     */
+    omit?: ResidentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResidentInclude<ExtArgs> | null
+    where?: ResidentWhereInput
+  }
+
+  /**
    * Staff without action
    */
   export type StaffDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5723,9 +5719,9 @@ export namespace Prisma {
     name: 'name',
     lastName: 'lastName',
     phone: 'phone',
-    telefone: 'telefone',
     email: 'email',
     password: 'password',
+    staff_id: 'staff_id',
     residence_id: 'residence_id'
   };
 
@@ -5735,8 +5731,7 @@ export namespace Prisma {
   export const StaffScalarFieldEnum: {
     id: 'id',
     admin_residence: 'admin_residence',
-    admin_address: 'admin_address',
-    ResidentToStaff_id: 'ResidentToStaff_id'
+    admin_address: 'admin_address'
   };
 
   export type StaffScalarFieldEnum = (typeof StaffScalarFieldEnum)[keyof typeof StaffScalarFieldEnum]
@@ -5748,6 +5743,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -5911,11 +5914,11 @@ export namespace Prisma {
     name?: StringFilter<"Resident"> | string
     lastName?: StringFilter<"Resident"> | string
     phone?: StringFilter<"Resident"> | string
-    telefone?: StringFilter<"Resident"> | string
     email?: StringFilter<"Resident"> | string
     password?: StringFilter<"Resident"> | string
+    staff_id?: IntNullableFilter<"Resident"> | number | null
     residence_id?: IntFilter<"Resident"> | number
-    staffs?: XOR<StaffNullableScalarRelationFilter, StaffWhereInput> | null
+    staff?: XOR<StaffNullableScalarRelationFilter, StaffWhereInput> | null
     residence?: XOR<ResidenceScalarRelationFilter, ResidenceWhereInput>
   }
 
@@ -5924,38 +5927,38 @@ export namespace Prisma {
     name?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    telefone?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    staff_id?: SortOrderInput | SortOrder
     residence_id?: SortOrder
-    staffs?: StaffOrderByWithRelationInput
+    staff?: StaffOrderByWithRelationInput
     residence?: ResidenceOrderByWithRelationInput
   }
 
   export type ResidentWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
+    staff_id?: number
     AND?: ResidentWhereInput | ResidentWhereInput[]
     OR?: ResidentWhereInput[]
     NOT?: ResidentWhereInput | ResidentWhereInput[]
     name?: StringFilter<"Resident"> | string
     lastName?: StringFilter<"Resident"> | string
     phone?: StringFilter<"Resident"> | string
-    telefone?: StringFilter<"Resident"> | string
     password?: StringFilter<"Resident"> | string
     residence_id?: IntFilter<"Resident"> | number
-    staffs?: XOR<StaffNullableScalarRelationFilter, StaffWhereInput> | null
+    staff?: XOR<StaffNullableScalarRelationFilter, StaffWhereInput> | null
     residence?: XOR<ResidenceScalarRelationFilter, ResidenceWhereInput>
-  }, "id" | "email">
+  }, "id" | "email" | "staff_id">
 
   export type ResidentOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    telefone?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    staff_id?: SortOrderInput | SortOrder
     residence_id?: SortOrder
     _count?: ResidentCountOrderByAggregateInput
     _avg?: ResidentAvgOrderByAggregateInput
@@ -5972,9 +5975,9 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Resident"> | string
     lastName?: StringWithAggregatesFilter<"Resident"> | string
     phone?: StringWithAggregatesFilter<"Resident"> | string
-    telefone?: StringWithAggregatesFilter<"Resident"> | string
     email?: StringWithAggregatesFilter<"Resident"> | string
     password?: StringWithAggregatesFilter<"Resident"> | string
+    staff_id?: IntNullableWithAggregatesFilter<"Resident"> | number | null
     residence_id?: IntWithAggregatesFilter<"Resident"> | number
   }
 
@@ -5985,34 +5988,30 @@ export namespace Prisma {
     id?: IntFilter<"Staff"> | number
     admin_residence?: BoolFilter<"Staff"> | boolean
     admin_address?: BoolFilter<"Staff"> | boolean
-    ResidentToStaff_id?: IntFilter<"Staff"> | number
-    ResidentToStaff?: XOR<ResidentScalarRelationFilter, ResidentWhereInput>
+    ResidentToStaff?: XOR<ResidentNullableScalarRelationFilter, ResidentWhereInput> | null
   }
 
   export type StaffOrderByWithRelationInput = {
     id?: SortOrder
     admin_residence?: SortOrder
     admin_address?: SortOrder
-    ResidentToStaff_id?: SortOrder
     ResidentToStaff?: ResidentOrderByWithRelationInput
   }
 
   export type StaffWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    ResidentToStaff_id?: number
     AND?: StaffWhereInput | StaffWhereInput[]
     OR?: StaffWhereInput[]
     NOT?: StaffWhereInput | StaffWhereInput[]
     admin_residence?: BoolFilter<"Staff"> | boolean
     admin_address?: BoolFilter<"Staff"> | boolean
-    ResidentToStaff?: XOR<ResidentScalarRelationFilter, ResidentWhereInput>
-  }, "id" | "ResidentToStaff_id">
+    ResidentToStaff?: XOR<ResidentNullableScalarRelationFilter, ResidentWhereInput> | null
+  }, "id">
 
   export type StaffOrderByWithAggregationInput = {
     id?: SortOrder
     admin_residence?: SortOrder
     admin_address?: SortOrder
-    ResidentToStaff_id?: SortOrder
     _count?: StaffCountOrderByAggregateInput
     _avg?: StaffAvgOrderByAggregateInput
     _max?: StaffMaxOrderByAggregateInput
@@ -6027,7 +6026,6 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Staff"> | number
     admin_residence?: BoolWithAggregatesFilter<"Staff"> | boolean
     admin_address?: BoolWithAggregatesFilter<"Staff"> | boolean
-    ResidentToStaff_id?: IntWithAggregatesFilter<"Staff"> | number
   }
 
   export type AddressCreateInput = {
@@ -6147,10 +6145,9 @@ export namespace Prisma {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
-    staffs?: StaffCreateNestedOneWithoutResidentToStaffInput
+    staff?: StaffCreateNestedOneWithoutResidentToStaffInput
     residence: ResidenceCreateNestedOneWithoutResidentsInput
   }
 
@@ -6159,21 +6156,19 @@ export namespace Prisma {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
+    staff_id?: number | null
     residence_id: number
-    staffs?: StaffUncheckedCreateNestedOneWithoutResidentToStaffInput
   }
 
   export type ResidentUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    staffs?: StaffUpdateOneWithoutResidentToStaffNestedInput
+    staff?: StaffUpdateOneWithoutResidentToStaffNestedInput
     residence?: ResidenceUpdateOneRequiredWithoutResidentsNestedInput
   }
 
@@ -6182,11 +6177,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    staff_id?: NullableIntFieldUpdateOperationsInput | number | null
     residence_id?: IntFieldUpdateOperationsInput | number
-    staffs?: StaffUncheckedUpdateOneWithoutResidentToStaffNestedInput
   }
 
   export type ResidentCreateManyInput = {
@@ -6194,9 +6188,9 @@ export namespace Prisma {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
+    staff_id?: number | null
     residence_id: number
   }
 
@@ -6204,7 +6198,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
   }
@@ -6214,43 +6207,42 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    staff_id?: NullableIntFieldUpdateOperationsInput | number | null
     residence_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type StaffCreateInput = {
     admin_residence: boolean
     admin_address: boolean
-    ResidentToStaff: ResidentCreateNestedOneWithoutStaffsInput
+    ResidentToStaff?: ResidentCreateNestedOneWithoutStaffInput
   }
 
   export type StaffUncheckedCreateInput = {
     id?: number
     admin_residence: boolean
     admin_address: boolean
-    ResidentToStaff_id: number
+    ResidentToStaff?: ResidentUncheckedCreateNestedOneWithoutStaffInput
   }
 
   export type StaffUpdateInput = {
     admin_residence?: BoolFieldUpdateOperationsInput | boolean
     admin_address?: BoolFieldUpdateOperationsInput | boolean
-    ResidentToStaff?: ResidentUpdateOneRequiredWithoutStaffsNestedInput
+    ResidentToStaff?: ResidentUpdateOneWithoutStaffNestedInput
   }
 
   export type StaffUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     admin_residence?: BoolFieldUpdateOperationsInput | boolean
     admin_address?: BoolFieldUpdateOperationsInput | boolean
-    ResidentToStaff_id?: IntFieldUpdateOperationsInput | number
+    ResidentToStaff?: ResidentUncheckedUpdateOneWithoutStaffNestedInput
   }
 
   export type StaffCreateManyInput = {
     id?: number
     admin_residence: boolean
     admin_address: boolean
-    ResidentToStaff_id: number
   }
 
   export type StaffUpdateManyMutationInput = {
@@ -6262,7 +6254,6 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     admin_residence?: BoolFieldUpdateOperationsInput | boolean
     admin_address?: BoolFieldUpdateOperationsInput | boolean
-    ResidentToStaff_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -6414,6 +6405,17 @@ export namespace Prisma {
     address_id?: SortOrder
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type StaffNullableScalarRelationFilter = {
     is?: StaffWhereInput | null
     isNot?: StaffWhereInput | null
@@ -6424,19 +6426,25 @@ export namespace Prisma {
     isNot?: ResidenceWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type ResidentCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    telefone?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    staff_id?: SortOrder
     residence_id?: SortOrder
   }
 
   export type ResidentAvgOrderByAggregateInput = {
     id?: SortOrder
+    staff_id?: SortOrder
     residence_id?: SortOrder
   }
 
@@ -6445,9 +6453,9 @@ export namespace Prisma {
     name?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    telefone?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    staff_id?: SortOrder
     residence_id?: SortOrder
   }
 
@@ -6456,15 +6464,32 @@ export namespace Prisma {
     name?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    telefone?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    staff_id?: SortOrder
     residence_id?: SortOrder
   }
 
   export type ResidentSumOrderByAggregateInput = {
     id?: SortOrder
+    staff_id?: SortOrder
     residence_id?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -6472,40 +6497,35 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type ResidentScalarRelationFilter = {
-    is?: ResidentWhereInput
-    isNot?: ResidentWhereInput
+  export type ResidentNullableScalarRelationFilter = {
+    is?: ResidentWhereInput | null
+    isNot?: ResidentWhereInput | null
   }
 
   export type StaffCountOrderByAggregateInput = {
     id?: SortOrder
     admin_residence?: SortOrder
     admin_address?: SortOrder
-    ResidentToStaff_id?: SortOrder
   }
 
   export type StaffAvgOrderByAggregateInput = {
     id?: SortOrder
-    ResidentToStaff_id?: SortOrder
   }
 
   export type StaffMaxOrderByAggregateInput = {
     id?: SortOrder
     admin_residence?: SortOrder
     admin_address?: SortOrder
-    ResidentToStaff_id?: SortOrder
   }
 
   export type StaffMinOrderByAggregateInput = {
     id?: SortOrder
     admin_residence?: SortOrder
     admin_address?: SortOrder
-    ResidentToStaff_id?: SortOrder
   }
 
   export type StaffSumOrderByAggregateInput = {
     id?: SortOrder
-    ResidentToStaff_id?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -6640,12 +6660,6 @@ export namespace Prisma {
     connect?: ResidenceWhereUniqueInput
   }
 
-  export type StaffUncheckedCreateNestedOneWithoutResidentToStaffInput = {
-    create?: XOR<StaffCreateWithoutResidentToStaffInput, StaffUncheckedCreateWithoutResidentToStaffInput>
-    connectOrCreate?: StaffCreateOrConnectWithoutResidentToStaffInput
-    connect?: StaffWhereUniqueInput
-  }
-
   export type StaffUpdateOneWithoutResidentToStaffNestedInput = {
     create?: XOR<StaffCreateWithoutResidentToStaffInput, StaffUncheckedCreateWithoutResidentToStaffInput>
     connectOrCreate?: StaffCreateOrConnectWithoutResidentToStaffInput
@@ -6664,19 +6678,23 @@ export namespace Prisma {
     update?: XOR<XOR<ResidenceUpdateToOneWithWhereWithoutResidentsInput, ResidenceUpdateWithoutResidentsInput>, ResidenceUncheckedUpdateWithoutResidentsInput>
   }
 
-  export type StaffUncheckedUpdateOneWithoutResidentToStaffNestedInput = {
-    create?: XOR<StaffCreateWithoutResidentToStaffInput, StaffUncheckedCreateWithoutResidentToStaffInput>
-    connectOrCreate?: StaffCreateOrConnectWithoutResidentToStaffInput
-    upsert?: StaffUpsertWithoutResidentToStaffInput
-    disconnect?: StaffWhereInput | boolean
-    delete?: StaffWhereInput | boolean
-    connect?: StaffWhereUniqueInput
-    update?: XOR<XOR<StaffUpdateToOneWithWhereWithoutResidentToStaffInput, StaffUpdateWithoutResidentToStaffInput>, StaffUncheckedUpdateWithoutResidentToStaffInput>
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type ResidentCreateNestedOneWithoutStaffsInput = {
-    create?: XOR<ResidentCreateWithoutStaffsInput, ResidentUncheckedCreateWithoutStaffsInput>
-    connectOrCreate?: ResidentCreateOrConnectWithoutStaffsInput
+  export type ResidentCreateNestedOneWithoutStaffInput = {
+    create?: XOR<ResidentCreateWithoutStaffInput, ResidentUncheckedCreateWithoutStaffInput>
+    connectOrCreate?: ResidentCreateOrConnectWithoutStaffInput
+    connect?: ResidentWhereUniqueInput
+  }
+
+  export type ResidentUncheckedCreateNestedOneWithoutStaffInput = {
+    create?: XOR<ResidentCreateWithoutStaffInput, ResidentUncheckedCreateWithoutStaffInput>
+    connectOrCreate?: ResidentCreateOrConnectWithoutStaffInput
     connect?: ResidentWhereUniqueInput
   }
 
@@ -6684,12 +6702,24 @@ export namespace Prisma {
     set?: boolean
   }
 
-  export type ResidentUpdateOneRequiredWithoutStaffsNestedInput = {
-    create?: XOR<ResidentCreateWithoutStaffsInput, ResidentUncheckedCreateWithoutStaffsInput>
-    connectOrCreate?: ResidentCreateOrConnectWithoutStaffsInput
-    upsert?: ResidentUpsertWithoutStaffsInput
+  export type ResidentUpdateOneWithoutStaffNestedInput = {
+    create?: XOR<ResidentCreateWithoutStaffInput, ResidentUncheckedCreateWithoutStaffInput>
+    connectOrCreate?: ResidentCreateOrConnectWithoutStaffInput
+    upsert?: ResidentUpsertWithoutStaffInput
+    disconnect?: ResidentWhereInput | boolean
+    delete?: ResidentWhereInput | boolean
     connect?: ResidentWhereUniqueInput
-    update?: XOR<XOR<ResidentUpdateToOneWithWhereWithoutStaffsInput, ResidentUpdateWithoutStaffsInput>, ResidentUncheckedUpdateWithoutStaffsInput>
+    update?: XOR<XOR<ResidentUpdateToOneWithWhereWithoutStaffInput, ResidentUpdateWithoutStaffInput>, ResidentUncheckedUpdateWithoutStaffInput>
+  }
+
+  export type ResidentUncheckedUpdateOneWithoutStaffNestedInput = {
+    create?: XOR<ResidentCreateWithoutStaffInput, ResidentUncheckedCreateWithoutStaffInput>
+    connectOrCreate?: ResidentCreateOrConnectWithoutStaffInput
+    upsert?: ResidentUpsertWithoutStaffInput
+    disconnect?: ResidentWhereInput | boolean
+    delete?: ResidentWhereInput | boolean
+    connect?: ResidentWhereUniqueInput
+    update?: XOR<XOR<ResidentUpdateToOneWithWhereWithoutStaffInput, ResidentUpdateWithoutStaffInput>, ResidentUncheckedUpdateWithoutStaffInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -6761,6 +6791,44 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -6823,10 +6891,9 @@ export namespace Prisma {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
-    staffs?: StaffCreateNestedOneWithoutResidentToStaffInput
+    staff?: StaffCreateNestedOneWithoutResidentToStaffInput
   }
 
   export type ResidentUncheckedCreateWithoutResidenceInput = {
@@ -6834,10 +6901,9 @@ export namespace Prisma {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
-    staffs?: StaffUncheckedCreateNestedOneWithoutResidentToStaffInput
+    staff_id?: number | null
   }
 
   export type ResidentCreateOrConnectWithoutResidenceInput = {
@@ -6897,9 +6963,9 @@ export namespace Prisma {
     name?: StringFilter<"Resident"> | string
     lastName?: StringFilter<"Resident"> | string
     phone?: StringFilter<"Resident"> | string
-    telefone?: StringFilter<"Resident"> | string
     email?: StringFilter<"Resident"> | string
     password?: StringFilter<"Resident"> | string
+    staff_id?: IntNullableFilter<"Resident"> | number | null
     residence_id?: IntFilter<"Resident"> | number
   }
 
@@ -7009,59 +7075,55 @@ export namespace Prisma {
     address_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ResidentCreateWithoutStaffsInput = {
+  export type ResidentCreateWithoutStaffInput = {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
     residence: ResidenceCreateNestedOneWithoutResidentsInput
   }
 
-  export type ResidentUncheckedCreateWithoutStaffsInput = {
+  export type ResidentUncheckedCreateWithoutStaffInput = {
     id?: number
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
     residence_id: number
   }
 
-  export type ResidentCreateOrConnectWithoutStaffsInput = {
+  export type ResidentCreateOrConnectWithoutStaffInput = {
     where: ResidentWhereUniqueInput
-    create: XOR<ResidentCreateWithoutStaffsInput, ResidentUncheckedCreateWithoutStaffsInput>
+    create: XOR<ResidentCreateWithoutStaffInput, ResidentUncheckedCreateWithoutStaffInput>
   }
 
-  export type ResidentUpsertWithoutStaffsInput = {
-    update: XOR<ResidentUpdateWithoutStaffsInput, ResidentUncheckedUpdateWithoutStaffsInput>
-    create: XOR<ResidentCreateWithoutStaffsInput, ResidentUncheckedCreateWithoutStaffsInput>
+  export type ResidentUpsertWithoutStaffInput = {
+    update: XOR<ResidentUpdateWithoutStaffInput, ResidentUncheckedUpdateWithoutStaffInput>
+    create: XOR<ResidentCreateWithoutStaffInput, ResidentUncheckedCreateWithoutStaffInput>
     where?: ResidentWhereInput
   }
 
-  export type ResidentUpdateToOneWithWhereWithoutStaffsInput = {
+  export type ResidentUpdateToOneWithWhereWithoutStaffInput = {
     where?: ResidentWhereInput
-    data: XOR<ResidentUpdateWithoutStaffsInput, ResidentUncheckedUpdateWithoutStaffsInput>
+    data: XOR<ResidentUpdateWithoutStaffInput, ResidentUncheckedUpdateWithoutStaffInput>
   }
 
-  export type ResidentUpdateWithoutStaffsInput = {
+  export type ResidentUpdateWithoutStaffInput = {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     residence?: ResidenceUpdateOneRequiredWithoutResidentsNestedInput
   }
 
-  export type ResidentUncheckedUpdateWithoutStaffsInput = {
+  export type ResidentUncheckedUpdateWithoutStaffInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     residence_id?: IntFieldUpdateOperationsInput | number
@@ -7093,19 +7155,18 @@ export namespace Prisma {
     name: string
     lastName: string
     phone: string
-    telefone: string
     email: string
     password: string
+    staff_id?: number | null
   }
 
   export type ResidentUpdateWithoutResidenceInput = {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    staffs?: StaffUpdateOneWithoutResidentToStaffNestedInput
+    staff?: StaffUpdateOneWithoutResidentToStaffNestedInput
   }
 
   export type ResidentUncheckedUpdateWithoutResidenceInput = {
@@ -7113,10 +7174,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    staffs?: StaffUncheckedUpdateOneWithoutResidentToStaffNestedInput
+    staff_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ResidentUncheckedUpdateManyWithoutResidenceInput = {
@@ -7124,9 +7184,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
-    telefone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    staff_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 
