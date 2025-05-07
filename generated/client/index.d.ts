@@ -1227,6 +1227,7 @@ export namespace Prisma {
     id: number | null
     name: string | null
     number: string | null
+    district: string | null
     city: string | null
     state: string | null
     zip_code: string | null
@@ -1236,6 +1237,7 @@ export namespace Prisma {
     id: number | null
     name: string | null
     number: string | null
+    district: string | null
     city: string | null
     state: string | null
     zip_code: string | null
@@ -1245,6 +1247,7 @@ export namespace Prisma {
     id: number
     name: number
     number: number
+    district: number
     city: number
     state: number
     zip_code: number
@@ -1264,6 +1267,7 @@ export namespace Prisma {
     id?: true
     name?: true
     number?: true
+    district?: true
     city?: true
     state?: true
     zip_code?: true
@@ -1273,6 +1277,7 @@ export namespace Prisma {
     id?: true
     name?: true
     number?: true
+    district?: true
     city?: true
     state?: true
     zip_code?: true
@@ -1282,6 +1287,7 @@ export namespace Prisma {
     id?: true
     name?: true
     number?: true
+    district?: true
     city?: true
     state?: true
     zip_code?: true
@@ -1378,6 +1384,7 @@ export namespace Prisma {
     id: number
     name: string
     number: string
+    district: string
     city: string
     state: string
     zip_code: string
@@ -1406,6 +1413,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     number?: boolean
+    district?: boolean
     city?: boolean
     state?: boolean
     zip_code?: boolean
@@ -1417,6 +1425,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     number?: boolean
+    district?: boolean
     city?: boolean
     state?: boolean
     zip_code?: boolean
@@ -1426,6 +1435,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     number?: boolean
+    district?: boolean
     city?: boolean
     state?: boolean
     zip_code?: boolean
@@ -1435,12 +1445,13 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     number?: boolean
+    district?: boolean
     city?: boolean
     state?: boolean
     zip_code?: boolean
   }
 
-  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "number" | "city" | "state" | "zip_code", ExtArgs["result"]["address"]>
+  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "number" | "district" | "city" | "state" | "zip_code", ExtArgs["result"]["address"]>
   export type AddressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     residences?: boolean | Address$residencesArgs<ExtArgs>
     _count?: boolean | AddressCountOutputTypeDefaultArgs<ExtArgs>
@@ -1457,6 +1468,7 @@ export namespace Prisma {
       id: number
       name: string
       number: string
+      district: string
       city: string
       state: string
       zip_code: string
@@ -1887,6 +1899,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Address", 'Int'>
     readonly name: FieldRef<"Address", 'String'>
     readonly number: FieldRef<"Address", 'String'>
+    readonly district: FieldRef<"Address", 'String'>
     readonly city: FieldRef<"Address", 'String'>
     readonly state: FieldRef<"Address", 'String'>
     readonly zip_code: FieldRef<"Address", 'String'>
@@ -5687,6 +5700,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     number: 'number',
+    district: 'district',
     city: 'city',
     state: 'state',
     zip_code: 'zip_code'
@@ -5779,6 +5793,7 @@ export namespace Prisma {
     id?: IntFilter<"Address"> | number
     name?: StringFilter<"Address"> | string
     number?: StringFilter<"Address"> | string
+    district?: StringFilter<"Address"> | string
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
     zip_code?: StringFilter<"Address"> | string
@@ -5789,6 +5804,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     number?: SortOrder
+    district?: SortOrder
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
@@ -5802,6 +5818,7 @@ export namespace Prisma {
     NOT?: AddressWhereInput | AddressWhereInput[]
     name?: StringFilter<"Address"> | string
     number?: StringFilter<"Address"> | string
+    district?: StringFilter<"Address"> | string
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
     zip_code?: StringFilter<"Address"> | string
@@ -5812,6 +5829,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     number?: SortOrder
+    district?: SortOrder
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
@@ -5829,6 +5847,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Address"> | number
     name?: StringWithAggregatesFilter<"Address"> | string
     number?: StringWithAggregatesFilter<"Address"> | string
+    district?: StringWithAggregatesFilter<"Address"> | string
     city?: StringWithAggregatesFilter<"Address"> | string
     state?: StringWithAggregatesFilter<"Address"> | string
     zip_code?: StringWithAggregatesFilter<"Address"> | string
@@ -6014,6 +6033,7 @@ export namespace Prisma {
   export type AddressCreateInput = {
     name: string
     number: string
+    district: string
     city: string
     state: string
     zip_code: string
@@ -6024,6 +6044,7 @@ export namespace Prisma {
     id?: number
     name: string
     number: string
+    district: string
     city: string
     state: string
     zip_code: string
@@ -6033,6 +6054,7 @@ export namespace Prisma {
   export type AddressUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
@@ -6043,6 +6065,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
@@ -6053,6 +6076,7 @@ export namespace Prisma {
     id?: number
     name: string
     number: string
+    district: string
     city: string
     state: string
     zip_code: string
@@ -6061,6 +6085,7 @@ export namespace Prisma {
   export type AddressUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
@@ -6070,6 +6095,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
@@ -6278,6 +6304,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     number?: SortOrder
+    district?: SortOrder
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
@@ -6291,6 +6318,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     number?: SortOrder
+    district?: SortOrder
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
@@ -6300,6 +6328,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     number?: SortOrder
+    district?: SortOrder
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
@@ -6823,6 +6852,7 @@ export namespace Prisma {
   export type AddressCreateWithoutResidencesInput = {
     name: string
     number: string
+    district: string
     city: string
     state: string
     zip_code: string
@@ -6832,6 +6862,7 @@ export namespace Prisma {
     id?: number
     name: string
     number: string
+    district: string
     city: string
     state: string
     zip_code: string
@@ -6886,6 +6917,7 @@ export namespace Prisma {
   export type AddressUpdateWithoutResidencesInput = {
     name?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
@@ -6895,6 +6927,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string

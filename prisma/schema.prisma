@@ -18,6 +18,7 @@ model Address{
   id Int @default(autoincrement()) @id
   name String
   number String
+  district String
   residences Residence[]
   city String
   state String
