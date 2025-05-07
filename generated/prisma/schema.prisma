@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Address {
+  id         Int         @id @default(autoincrement())
+  name       String
+  number     String
+  residences Residence[]
+  city       String
+  state      String
+  zip_code   String
+}
+
+model Residence {
+  id         Int        @id @default(autoincrement())
+  complement String
+  residents  Resident[]
+  address    Address?   @relation(fields: [address_id], references: [id])
+  address_id Int
+}
+
+model Resident {
+  id           Int       @id @default(autoincrement())
+  name         String
+  lastName     String
+  phone        String
+  telefone     String
+  email        String    @unique
+  password     String
+  staffs       Staff?
+  residence    Residence @relation(fields: [residence_id], references: [id])
+  residence_id Int
+}
+
+model Staff {
+  id                 Int      @id @default(autoincrement())
+  admin_residence    Boolean
+  admin_address      Boolean
+  ResidentToStaff    Resident @relation(fields: [ResidentToStaff_id], references: [id])
+  ResidentToStaff_id Int      @unique
+}
