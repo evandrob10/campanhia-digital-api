@@ -146,7 +146,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia digital\\campanhia-digital-api\\generated\\prisma",
+      "value": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia digital\\campanhia-digital-api\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -164,7 +164,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -174,16 +174,17 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "file:./dev.db"
+        "value": null
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Address {\n  id         Int         @id @default(autoincrement())\n  name       String\n  number     String\n  residences Residence[]\n  city       String\n  state      String\n  zip_code   String\n}\n\nmodel Residence {\n  id         Int        @id @default(autoincrement())\n  complement String\n  residents  Resident[]\n  address    Address?   @relation(fields: [address_id], references: [id])\n  address_id Int\n}\n\nmodel Resident {\n  id           Int       @id @default(autoincrement())\n  name         String\n  lastName     String\n  phone        String\n  telefone     String\n  email        String    @unique\n  password     String\n  staffs       Staff?\n  residence    Residence @relation(fields: [residence_id], references: [id])\n  residence_id Int\n}\n\nmodel Staff {\n  id                 Int      @id @default(autoincrement())\n  admin_residence    Boolean\n  admin_address      Boolean\n  ResidentToStaff    Resident @relation(fields: [ResidentToStaff_id], references: [id])\n  ResidentToStaff_id Int      @unique\n}\n",
-  "inlineSchemaHash": "167a02dd95d5403d6e6251c288cb6299db579b99e538ed13d6318be9aec7eabf",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/client\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Address {\n  id         Int         @id @default(autoincrement())\n  name       String\n  number     String\n  residences Residence[]\n  city       String\n  state      String\n  zip_code   String\n}\n\nmodel Residence {\n  id         Int        @id @default(autoincrement())\n  complement String\n  residents  Resident[]\n  address    Address?   @relation(fields: [address_id], references: [id])\n  address_id Int\n}\n\nmodel Resident {\n  id           Int       @id @default(autoincrement())\n  name         String\n  lastName     String\n  phone        String\n  telefone     String\n  email        String    @unique\n  password     String\n  staffs       Staff?\n  residence    Residence @relation(fields: [residence_id], references: [id])\n  residence_id Int\n}\n\nmodel Staff {\n  id                 Int      @id @default(autoincrement())\n  admin_residence    Boolean\n  admin_address      Boolean\n  ResidentToStaff    Resident @relation(fields: [ResidentToStaff_id], references: [id])\n  ResidentToStaff_id Int      @unique\n}\n",
+  "inlineSchemaHash": "503e2ea9feed7720905565996d1f0ac0395f1f6565990c81634495800869d7d1",
   "copyEngine": true
 }
 
@@ -192,8 +193,8 @@ const fs = require('fs')
 config.dirname = __dirname
 if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
   const alternativePaths = [
-    "generated/prisma",
-    "prisma",
+    "generated/client",
+    "client",
   ]
   
   const alternativePath = alternativePaths.find((altPath) => {
@@ -223,7 +224,7 @@ Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
+path.join(process.cwd(), "generated/client/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "generated/prisma/schema.prisma")
+path.join(process.cwd(), "generated/client/schema.prisma")
