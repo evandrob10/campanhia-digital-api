@@ -27,7 +27,7 @@ model Address {
 
 model Residence {
   id         Int        @id @default(autoincrement())
-  complement String
+  complement String     @unique
   residents  Resident[]
   address    Address?   @relation(fields: [address_id], references: [id])
   address_id Int

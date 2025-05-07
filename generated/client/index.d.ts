@@ -5874,14 +5874,14 @@ export namespace Prisma {
 
   export type ResidenceWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    complement?: string
     AND?: ResidenceWhereInput | ResidenceWhereInput[]
     OR?: ResidenceWhereInput[]
     NOT?: ResidenceWhereInput | ResidenceWhereInput[]
-    complement?: StringFilter<"Residence"> | string
     address_id?: IntFilter<"Residence"> | number
     residents?: ResidentListRelationFilter
     address?: XOR<AddressNullableScalarRelationFilter, AddressWhereInput> | null
-  }, "id">
+  }, "id" | "complement">
 
   export type ResidenceOrderByWithAggregationInput = {
     id?: SortOrder
