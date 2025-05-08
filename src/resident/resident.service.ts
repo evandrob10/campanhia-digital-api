@@ -7,8 +7,8 @@ import { PrismaService } from 'src/prisma-client/prisma-client.service';
 export class ResidentService {
     constructor(private readonly prisma: PrismaService) {}
 
-    create(createResidentDto: CreateResidentDto) {
-        const response = this.prisma.resident.create({
+    async create(createResidentDto: CreateResidentDto) {
+        const response = await this.prisma.resident.create({
             data: {
                 name: createResidentDto.name,
                 lastName: createResidentDto.lastName,
@@ -16,25 +16,42 @@ export class ResidentService {
                 email: createResidentDto.email,
                 password: createResidentDto.password,
                 residence_id: createResidentDto.residence_id,
-                staff_id: createResidentDto.staffs,
+                staff_id: createResidentDto.staff_id,
             },
         });
         return response;
     }
 
-    findAll() {
-        return `This action returns all resident`;
+    async findAll(residence_id: number) {
+        const response = await this.prisma.resident.findMany({
+            where: {
+                residence_id: residence_id,
+            },
+        });
+        return response;
     }
 
-    findOne(id: number) {
-        return `This action returns a #${id} resident`;
+    async findOne(id: number) {
+        return await this.prisma.resident.findUnique({ where: { id: id } });
     }
 
-    update(id: number, updateResidentDto: UpdateResidentDto) {
-        return `This action updates a #${id} resident`;
+    async update(id: number, updateResidentDto: UpdateResidentDto) {
+        const response = await this.prisma.resident.update({
+            where: { id: id },
+            data: {
+                name: updateResidentDto.name,
+                lastName: updateResidentDto.lastName,
+                phone: updateResidentDto.phone,
+                email: updateResidentDto.email,
+                password: updateResidentDto.password,
+                residence_id: updateResidentDto.residence_id,
+                staff_id: updateResidentDto.staff_id,
+            },
+        });
+        return response;
     }
 
     remove(id: number) {
-        return `This action removes a #${id} resident`;
+        return this.prisma.resident.delete({ where: { id: id } });
     }
 }

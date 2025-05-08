@@ -20,14 +20,14 @@ export class ResidentController {
         return this.residentService.create(createResidentDto);
     }
 
-    @Get()
-    findAll() {
-        return this.residentService.findAll();
-    }
-
     @Get(':id')
     findOne(@Param('id') id: string) {
         return this.residentService.findOne(+id);
+    }
+
+    @Get('/all_resident/:id')
+    findAll(@Param('id') id: string) {
+        return this.residentService.findAll(+id);
     }
 
     @Patch(':id')

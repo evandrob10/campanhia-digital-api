@@ -147,7 +147,8 @@ exports.Prisma.ResidentScalarFieldEnum = {
 exports.Prisma.StaffScalarFieldEnum = {
   id: 'id',
   admin_residence: 'admin_residence',
-  admin_address: 'admin_address'
+  admin_address: 'admin_address',
+  Address_id: 'Address_id'
 };
 
 exports.Prisma.SortOrder = {

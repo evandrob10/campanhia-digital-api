@@ -5,5 +5,5 @@ export class CreateResidentDto {
     email: string;
     password: string;
     residence_id: number;
-    staffs: number | null;
+    staff_id: number;
 }

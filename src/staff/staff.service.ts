@@ -1,26 +1,57 @@
 import { Injectable } from '@nestjs/common';
 import { CreateStaffDto } from './dto/create-staff.dto';
 import { UpdateStaffDto } from './dto/update-staff.dto';
+import { PrismaService } from 'src/prisma-client/prisma-client.service';
 
 @Injectable()
 export class StaffService {
-    create(createStaffDto: CreateStaffDto) {
-        return 'This action adds a new staff';
+    constructor(private readonly prisma: PrismaService) {}
+
+    async create(createStaffDto: CreateStaffDto) {
+        const response = await this.prisma.staff.create({
+            data: {
+                Address_id: createStaffDto.address_id,
+            },
+        });
+        return response;
     }
 
-    findAll() {
-        return `This action returns all staff`;
+    async findOne(id: number) {
+        return await this.prisma.staff.findUnique({ where: { id: id } });
     }
 
-    findOne(id: number) {
-        return `This action returns a #${id} staff`;
+    async removeAdminAdress(address_id?: number) {
+        if (address_id) {
+            const staffs = await this.prisma.staff.findMany({
+                where: { Address_id: address_id },
+            });
+            const staffActiveAddress = staffs.filter((element) => {
+                return element.admin_address;
+            });
+            if (staffActiveAddress) {
+                return this.prisma.staff.update({
+                    data: {
+                        admin_address: false,
+                    },
+                    where: { id: staffActiveAddress[0].id },
+                });
+            }
+        }
     }
 
-    update(id: number, updateStaffDto: UpdateStaffDto) {
-        return `This action updates a #${id} staff`;
-    }
-
-    remove(id: number) {
-        return `This action removes a #${id} staff`;
+    async update(id: number, updateStaffDto: UpdateStaffDto) {
+        const update = this.removeAdminAdress(updateStaffDto.address_id);
+        const response = await this.prisma.staff.update({
+            data: {
+                admin_address: updateStaffDto.admin_address,
+                admin_residence: updateStaffDto.admin_residence,
+            },
+            where: {
+                id: id,
+            },
+        });
+        return (await update)
+            ? [{ message: 'Troca realizada' }, response]
+            : response;
     }
 }

@@ -1,12 +1,4 @@
-import {
-    Controller,
-    Get,
-    Post,
-    Body,
-    Patch,
-    Param,
-    Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';
 import { StaffService } from './staff.service';
 import { CreateStaffDto } from './dto/create-staff.dto';
 import { UpdateStaffDto } from './dto/update-staff.dto';
@@ -20,11 +12,6 @@ export class StaffController {
         return this.staffService.create(createStaffDto);
     }
 
-    @Get()
-    findAll() {
-        return this.staffService.findAll();
-    }
-
     @Get(':id')
     findOne(@Param('id') id: string) {
         return this.staffService.findOne(+id);
@@ -33,10 +20,5 @@ export class StaffController {
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateStaffDto: UpdateStaffDto) {
         return this.staffService.update(+id, updateStaffDto);
-    }
-
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.staffService.remove(+id);
     }
 }

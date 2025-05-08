@@ -23,6 +23,7 @@ model Address{
   city String
   state String
   zip_code String
+  staff Staff[]
 }
 
 model Residence{
@@ -40,15 +41,18 @@ model Resident{
   phone String
   email String @unique
   password String
-  staff Staff? @relation(fields: [staff_id], references: [id])
-  staff_id Int? @unique
+  staff Staff @relation(fields: [staff_id], references: [id])
+  staff_id Int @unique
   residence Residence @relation(fields: [residence_id],references: [id])
   residence_id Int
 }
 
 model Staff{
   id Int @default(autoincrement()) @id
-  admin_residence Boolean
-  admin_address Boolean
-  ResidentToStaff Resident?
+  admin_residence Boolean @default(false)
+  admin_address Boolean @default(false)
+  residentToStaff Resident?
+
+  Address Address? @relation(fields: [Address_id],references: [id]) 
+  Address_id Int? 
 }
