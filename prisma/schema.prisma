@@ -16,7 +16,7 @@ datasource db {
 
 model Address{
   id Int @default(autoincrement()) @id
-  name String
+  street String
   number String
   district String
   residences Residence[]

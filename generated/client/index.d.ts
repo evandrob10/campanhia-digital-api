@@ -1234,7 +1234,7 @@ export namespace Prisma {
 
   export type AddressMinAggregateOutputType = {
     id: number | null
-    name: string | null
+    street: string | null
     number: string | null
     district: string | null
     city: string | null
@@ -1244,7 +1244,7 @@ export namespace Prisma {
 
   export type AddressMaxAggregateOutputType = {
     id: number | null
-    name: string | null
+    street: string | null
     number: string | null
     district: string | null
     city: string | null
@@ -1254,7 +1254,7 @@ export namespace Prisma {
 
   export type AddressCountAggregateOutputType = {
     id: number
-    name: number
+    street: number
     number: number
     district: number
     city: number
@@ -1274,7 +1274,7 @@ export namespace Prisma {
 
   export type AddressMinAggregateInputType = {
     id?: true
-    name?: true
+    street?: true
     number?: true
     district?: true
     city?: true
@@ -1284,7 +1284,7 @@ export namespace Prisma {
 
   export type AddressMaxAggregateInputType = {
     id?: true
-    name?: true
+    street?: true
     number?: true
     district?: true
     city?: true
@@ -1294,7 +1294,7 @@ export namespace Prisma {
 
   export type AddressCountAggregateInputType = {
     id?: true
-    name?: true
+    street?: true
     number?: true
     district?: true
     city?: true
@@ -1391,7 +1391,7 @@ export namespace Prisma {
 
   export type AddressGroupByOutputType = {
     id: number
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -1420,7 +1420,7 @@ export namespace Prisma {
 
   export type AddressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
+    street?: boolean
     number?: boolean
     district?: boolean
     city?: boolean
@@ -1433,7 +1433,7 @@ export namespace Prisma {
 
   export type AddressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
+    street?: boolean
     number?: boolean
     district?: boolean
     city?: boolean
@@ -1443,7 +1443,7 @@ export namespace Prisma {
 
   export type AddressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
+    street?: boolean
     number?: boolean
     district?: boolean
     city?: boolean
@@ -1453,7 +1453,7 @@ export namespace Prisma {
 
   export type AddressSelectScalar = {
     id?: boolean
-    name?: boolean
+    street?: boolean
     number?: boolean
     district?: boolean
     city?: boolean
@@ -1461,7 +1461,7 @@ export namespace Prisma {
     zip_code?: boolean
   }
 
-  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "number" | "district" | "city" | "state" | "zip_code", ExtArgs["result"]["address"]>
+  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "street" | "number" | "district" | "city" | "state" | "zip_code", ExtArgs["result"]["address"]>
   export type AddressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     residences?: boolean | Address$residencesArgs<ExtArgs>
     staff?: boolean | Address$staffArgs<ExtArgs>
@@ -1478,7 +1478,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      name: string
+      street: string
       number: string
       district: string
       city: string
@@ -1910,7 +1910,7 @@ export namespace Prisma {
    */
   interface AddressFieldRefs {
     readonly id: FieldRef<"Address", 'Int'>
-    readonly name: FieldRef<"Address", 'String'>
+    readonly street: FieldRef<"Address", 'String'>
     readonly number: FieldRef<"Address", 'String'>
     readonly district: FieldRef<"Address", 'String'>
     readonly city: FieldRef<"Address", 'String'>
@@ -5766,7 +5766,7 @@ export namespace Prisma {
 
   export const AddressScalarFieldEnum: {
     id: 'id',
-    name: 'name',
+    street: 'street',
     number: 'number',
     district: 'district',
     city: 'city',
@@ -5867,7 +5867,7 @@ export namespace Prisma {
     OR?: AddressWhereInput[]
     NOT?: AddressWhereInput | AddressWhereInput[]
     id?: IntFilter<"Address"> | number
-    name?: StringFilter<"Address"> | string
+    street?: StringFilter<"Address"> | string
     number?: StringFilter<"Address"> | string
     district?: StringFilter<"Address"> | string
     city?: StringFilter<"Address"> | string
@@ -5879,7 +5879,7 @@ export namespace Prisma {
 
   export type AddressOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
+    street?: SortOrder
     number?: SortOrder
     district?: SortOrder
     city?: SortOrder
@@ -5894,7 +5894,7 @@ export namespace Prisma {
     AND?: AddressWhereInput | AddressWhereInput[]
     OR?: AddressWhereInput[]
     NOT?: AddressWhereInput | AddressWhereInput[]
-    name?: StringFilter<"Address"> | string
+    street?: StringFilter<"Address"> | string
     number?: StringFilter<"Address"> | string
     district?: StringFilter<"Address"> | string
     city?: StringFilter<"Address"> | string
@@ -5906,7 +5906,7 @@ export namespace Prisma {
 
   export type AddressOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
+    street?: SortOrder
     number?: SortOrder
     district?: SortOrder
     city?: SortOrder
@@ -5924,7 +5924,7 @@ export namespace Prisma {
     OR?: AddressScalarWhereWithAggregatesInput[]
     NOT?: AddressScalarWhereWithAggregatesInput | AddressScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Address"> | number
-    name?: StringWithAggregatesFilter<"Address"> | string
+    street?: StringWithAggregatesFilter<"Address"> | string
     number?: StringWithAggregatesFilter<"Address"> | string
     district?: StringWithAggregatesFilter<"Address"> | string
     city?: StringWithAggregatesFilter<"Address"> | string
@@ -6113,7 +6113,7 @@ export namespace Prisma {
   }
 
   export type AddressCreateInput = {
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -6125,7 +6125,7 @@ export namespace Prisma {
 
   export type AddressUncheckedCreateInput = {
     id?: number
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -6136,7 +6136,7 @@ export namespace Prisma {
   }
 
   export type AddressUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
@@ -6148,7 +6148,7 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
@@ -6160,7 +6160,7 @@ export namespace Prisma {
 
   export type AddressCreateManyInput = {
     id?: number
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -6169,7 +6169,7 @@ export namespace Prisma {
   }
 
   export type AddressUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
@@ -6179,7 +6179,7 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
@@ -6397,7 +6397,7 @@ export namespace Prisma {
 
   export type AddressCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    street?: SortOrder
     number?: SortOrder
     district?: SortOrder
     city?: SortOrder
@@ -6411,7 +6411,7 @@ export namespace Prisma {
 
   export type AddressMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    street?: SortOrder
     number?: SortOrder
     district?: SortOrder
     city?: SortOrder
@@ -6421,7 +6421,7 @@ export namespace Prisma {
 
   export type AddressMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
+    street?: SortOrder
     number?: SortOrder
     district?: SortOrder
     city?: SortOrder
@@ -7129,7 +7129,7 @@ export namespace Prisma {
   }
 
   export type AddressCreateWithoutResidencesInput = {
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -7140,7 +7140,7 @@ export namespace Prisma {
 
   export type AddressUncheckedCreateWithoutResidencesInput = {
     id?: number
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -7196,7 +7196,7 @@ export namespace Prisma {
   }
 
   export type AddressUpdateWithoutResidencesInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
@@ -7207,7 +7207,7 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateWithoutResidencesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
@@ -7321,7 +7321,7 @@ export namespace Prisma {
   }
 
   export type AddressCreateWithoutStaffInput = {
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -7332,7 +7332,7 @@ export namespace Prisma {
 
   export type AddressUncheckedCreateWithoutStaffInput = {
     id?: number
-    name: string
+    street: string
     number: string
     district: string
     city: string
@@ -7388,7 +7388,7 @@ export namespace Prisma {
   }
 
   export type AddressUpdateWithoutStaffInput = {
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
@@ -7399,7 +7399,7 @@ export namespace Prisma {
 
   export type AddressUncheckedUpdateWithoutStaffInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
+    street?: StringFieldUpdateOperationsInput | string
     number?: StringFieldUpdateOperationsInput | string
     district?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string

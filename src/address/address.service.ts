@@ -10,7 +10,7 @@ export class AddressService {
     async create(createAddressDto: CreateAddressDto) {
         const response = await this.prisma.address.create({
             data: {
-                name: createAddressDto.name,
+                street: createAddressDto.street,
                 number: createAddressDto.number,
                 district: createAddressDto.district,
                 city: createAddressDto.city,
@@ -33,7 +33,7 @@ export class AddressService {
     async update(id: number, updateAddressDto: UpdateAddressDto) {
         const response = await this.prisma.address.update({
             data: {
-                name: updateAddressDto.name,
+                street: updateAddressDto.street,
                 number: updateAddressDto.number,
                 district: updateAddressDto.district,
                 city: updateAddressDto.city,
