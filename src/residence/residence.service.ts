@@ -10,8 +10,8 @@ export class ResidenceService {
     async create(createResidenceDto: CreateResidenceDto) {
         const response = await this.prisma.residence.create({
             data: {
+                name: createResidenceDto.name,
                 address_id: createResidenceDto.address_id,
-                complement: createResidenceDto.complement,
             },
         });
         return response;
@@ -24,7 +24,7 @@ export class ResidenceService {
             },
             orderBy: [
                 {
-                    complement: 'asc',
+                    name: 'asc',
                 },
             ],
         });
@@ -42,7 +42,7 @@ export class ResidenceService {
 
     update(id: number, updateResidenceDto: UpdateResidenceDto) {
         const response = this.prisma.residence.update({
-            data: { complement: updateResidenceDto.complement },
+            data: { name: updateResidenceDto.name },
             where: {
                 id: id,
             },

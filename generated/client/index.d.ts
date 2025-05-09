@@ -1240,6 +1240,7 @@ export namespace Prisma {
     city: string | null
     state: string | null
     zip_code: string | null
+    complement: string | null
   }
 
   export type AddressMaxAggregateOutputType = {
@@ -1250,6 +1251,7 @@ export namespace Prisma {
     city: string | null
     state: string | null
     zip_code: string | null
+    complement: string | null
   }
 
   export type AddressCountAggregateOutputType = {
@@ -1260,6 +1262,7 @@ export namespace Prisma {
     city: number
     state: number
     zip_code: number
+    complement: number
     _all: number
   }
 
@@ -1280,6 +1283,7 @@ export namespace Prisma {
     city?: true
     state?: true
     zip_code?: true
+    complement?: true
   }
 
   export type AddressMaxAggregateInputType = {
@@ -1290,6 +1294,7 @@ export namespace Prisma {
     city?: true
     state?: true
     zip_code?: true
+    complement?: true
   }
 
   export type AddressCountAggregateInputType = {
@@ -1300,6 +1305,7 @@ export namespace Prisma {
     city?: true
     state?: true
     zip_code?: true
+    complement?: true
     _all?: true
   }
 
@@ -1397,6 +1403,7 @@ export namespace Prisma {
     city: string
     state: string
     zip_code: string
+    complement: string
     _count: AddressCountAggregateOutputType | null
     _avg: AddressAvgAggregateOutputType | null
     _sum: AddressSumAggregateOutputType | null
@@ -1426,6 +1433,7 @@ export namespace Prisma {
     city?: boolean
     state?: boolean
     zip_code?: boolean
+    complement?: boolean
     residences?: boolean | Address$residencesArgs<ExtArgs>
     staff?: boolean | Address$staffArgs<ExtArgs>
     _count?: boolean | AddressCountOutputTypeDefaultArgs<ExtArgs>
@@ -1439,6 +1447,7 @@ export namespace Prisma {
     city?: boolean
     state?: boolean
     zip_code?: boolean
+    complement?: boolean
   }, ExtArgs["result"]["address"]>
 
   export type AddressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1449,6 +1458,7 @@ export namespace Prisma {
     city?: boolean
     state?: boolean
     zip_code?: boolean
+    complement?: boolean
   }, ExtArgs["result"]["address"]>
 
   export type AddressSelectScalar = {
@@ -1459,9 +1469,10 @@ export namespace Prisma {
     city?: boolean
     state?: boolean
     zip_code?: boolean
+    complement?: boolean
   }
 
-  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "street" | "number" | "district" | "city" | "state" | "zip_code", ExtArgs["result"]["address"]>
+  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "street" | "number" | "district" | "city" | "state" | "zip_code" | "complement", ExtArgs["result"]["address"]>
   export type AddressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     residences?: boolean | Address$residencesArgs<ExtArgs>
     staff?: boolean | Address$staffArgs<ExtArgs>
@@ -1484,6 +1495,7 @@ export namespace Prisma {
       city: string
       state: string
       zip_code: string
+      complement: string
     }, ExtArgs["result"]["address"]>
     composites: {}
   }
@@ -1916,6 +1928,7 @@ export namespace Prisma {
     readonly city: FieldRef<"Address", 'String'>
     readonly state: FieldRef<"Address", 'String'>
     readonly zip_code: FieldRef<"Address", 'String'>
+    readonly complement: FieldRef<"Address", 'String'>
   }
     
 
@@ -2392,19 +2405,19 @@ export namespace Prisma {
 
   export type ResidenceMinAggregateOutputType = {
     id: number | null
-    complement: string | null
+    name: string | null
     address_id: number | null
   }
 
   export type ResidenceMaxAggregateOutputType = {
     id: number | null
-    complement: string | null
+    name: string | null
     address_id: number | null
   }
 
   export type ResidenceCountAggregateOutputType = {
     id: number
-    complement: number
+    name: number
     address_id: number
     _all: number
   }
@@ -2422,19 +2435,19 @@ export namespace Prisma {
 
   export type ResidenceMinAggregateInputType = {
     id?: true
-    complement?: true
+    name?: true
     address_id?: true
   }
 
   export type ResidenceMaxAggregateInputType = {
     id?: true
-    complement?: true
+    name?: true
     address_id?: true
   }
 
   export type ResidenceCountAggregateInputType = {
     id?: true
-    complement?: true
+    name?: true
     address_id?: true
     _all?: true
   }
@@ -2527,7 +2540,7 @@ export namespace Prisma {
 
   export type ResidenceGroupByOutputType = {
     id: number
-    complement: string
+    name: string | null
     address_id: number
     _count: ResidenceCountAggregateOutputType | null
     _avg: ResidenceAvgAggregateOutputType | null
@@ -2552,55 +2565,55 @@ export namespace Prisma {
 
   export type ResidenceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    complement?: boolean
+    name?: boolean
     address_id?: boolean
+    address?: boolean | AddressDefaultArgs<ExtArgs>
     residents?: boolean | Residence$residentsArgs<ExtArgs>
-    address?: boolean | Residence$addressArgs<ExtArgs>
     _count?: boolean | ResidenceCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["residence"]>
 
   export type ResidenceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    complement?: boolean
+    name?: boolean
     address_id?: boolean
-    address?: boolean | Residence$addressArgs<ExtArgs>
+    address?: boolean | AddressDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["residence"]>
 
   export type ResidenceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    complement?: boolean
+    name?: boolean
     address_id?: boolean
-    address?: boolean | Residence$addressArgs<ExtArgs>
+    address?: boolean | AddressDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["residence"]>
 
   export type ResidenceSelectScalar = {
     id?: boolean
-    complement?: boolean
+    name?: boolean
     address_id?: boolean
   }
 
-  export type ResidenceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "complement" | "address_id", ExtArgs["result"]["residence"]>
+  export type ResidenceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "address_id", ExtArgs["result"]["residence"]>
   export type ResidenceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    address?: boolean | AddressDefaultArgs<ExtArgs>
     residents?: boolean | Residence$residentsArgs<ExtArgs>
-    address?: boolean | Residence$addressArgs<ExtArgs>
     _count?: boolean | ResidenceCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ResidenceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    address?: boolean | Residence$addressArgs<ExtArgs>
+    address?: boolean | AddressDefaultArgs<ExtArgs>
   }
   export type ResidenceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    address?: boolean | Residence$addressArgs<ExtArgs>
+    address?: boolean | AddressDefaultArgs<ExtArgs>
   }
 
   export type $ResidencePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Residence"
     objects: {
+      address: Prisma.$AddressPayload<ExtArgs>
       residents: Prisma.$ResidentPayload<ExtArgs>[]
-      address: Prisma.$AddressPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      complement: string
+      name: string | null
       address_id: number
     }, ExtArgs["result"]["residence"]>
     composites: {}
@@ -2996,8 +3009,8 @@ export namespace Prisma {
    */
   export interface Prisma__ResidenceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    address<T extends AddressDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AddressDefaultArgs<ExtArgs>>): Prisma__AddressClient<$Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     residents<T extends Residence$residentsArgs<ExtArgs> = {}>(args?: Subset<T, Residence$residentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResidentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    address<T extends Residence$addressArgs<ExtArgs> = {}>(args?: Subset<T, Residence$addressArgs<ExtArgs>>): Prisma__AddressClient<$Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3028,7 +3041,7 @@ export namespace Prisma {
    */
   interface ResidenceFieldRefs {
     readonly id: FieldRef<"Residence", 'Int'>
-    readonly complement: FieldRef<"Residence", 'String'>
+    readonly name: FieldRef<"Residence", 'String'>
     readonly address_id: FieldRef<"Residence", 'Int'>
   }
     
@@ -3448,25 +3461,6 @@ export namespace Prisma {
   }
 
   /**
-   * Residence.address
-   */
-  export type Residence$addressArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Address
-     */
-    select?: AddressSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Address
-     */
-    omit?: AddressOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AddressInclude<ExtArgs> | null
-    where?: AddressWhereInput
-  }
-
-  /**
    * Residence without action
    */
   export type ResidenceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3715,8 +3709,8 @@ export namespace Prisma {
     password?: boolean
     staff_id?: boolean
     residence_id?: boolean
-    staff?: boolean | StaffDefaultArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
+    staff?: boolean | StaffDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resident"]>
 
   export type ResidentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3728,8 +3722,8 @@ export namespace Prisma {
     password?: boolean
     staff_id?: boolean
     residence_id?: boolean
-    staff?: boolean | StaffDefaultArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
+    staff?: boolean | StaffDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resident"]>
 
   export type ResidentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3741,8 +3735,8 @@ export namespace Prisma {
     password?: boolean
     staff_id?: boolean
     residence_id?: boolean
-    staff?: boolean | StaffDefaultArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
+    staff?: boolean | StaffDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resident"]>
 
   export type ResidentSelectScalar = {
@@ -3758,23 +3752,23 @@ export namespace Prisma {
 
   export type ResidentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "lastName" | "phone" | "email" | "password" | "staff_id" | "residence_id", ExtArgs["result"]["resident"]>
   export type ResidentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    staff?: boolean | StaffDefaultArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
+    staff?: boolean | StaffDefaultArgs<ExtArgs>
   }
   export type ResidentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    staff?: boolean | StaffDefaultArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
+    staff?: boolean | StaffDefaultArgs<ExtArgs>
   }
   export type ResidentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    staff?: boolean | StaffDefaultArgs<ExtArgs>
     residence?: boolean | ResidenceDefaultArgs<ExtArgs>
+    staff?: boolean | StaffDefaultArgs<ExtArgs>
   }
 
   export type $ResidentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Resident"
     objects: {
-      staff: Prisma.$StaffPayload<ExtArgs>
       residence: Prisma.$ResidencePayload<ExtArgs>
+      staff: Prisma.$StaffPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4179,8 +4173,8 @@ export namespace Prisma {
    */
   export interface Prisma__ResidentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    staff<T extends StaffDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StaffDefaultArgs<ExtArgs>>): Prisma__StaffClient<$Result.GetResult<Prisma.$StaffPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     residence<T extends ResidenceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ResidenceDefaultArgs<ExtArgs>>): Prisma__ResidenceClient<$Result.GetResult<Prisma.$ResidencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    staff<T extends StaffDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StaffDefaultArgs<ExtArgs>>): Prisma__StaffClient<$Result.GetResult<Prisma.$StaffPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5771,7 +5765,8 @@ export namespace Prisma {
     district: 'district',
     city: 'city',
     state: 'state',
-    zip_code: 'zip_code'
+    zip_code: 'zip_code',
+    complement: 'complement'
   };
 
   export type AddressScalarFieldEnum = (typeof AddressScalarFieldEnum)[keyof typeof AddressScalarFieldEnum]
@@ -5779,7 +5774,7 @@ export namespace Prisma {
 
   export const ResidenceScalarFieldEnum: {
     id: 'id',
-    complement: 'complement',
+    name: 'name',
     address_id: 'address_id'
   };
 
@@ -5873,6 +5868,7 @@ export namespace Prisma {
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
     zip_code?: StringFilter<"Address"> | string
+    complement?: StringFilter<"Address"> | string
     residences?: ResidenceListRelationFilter
     staff?: StaffListRelationFilter
   }
@@ -5885,6 +5881,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
+    complement?: SortOrder
     residences?: ResidenceOrderByRelationAggregateInput
     staff?: StaffOrderByRelationAggregateInput
   }
@@ -5900,6 +5897,7 @@ export namespace Prisma {
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
     zip_code?: StringFilter<"Address"> | string
+    complement?: StringFilter<"Address"> | string
     residences?: ResidenceListRelationFilter
     staff?: StaffListRelationFilter
   }, "id">
@@ -5912,6 +5910,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
+    complement?: SortOrder
     _count?: AddressCountOrderByAggregateInput
     _avg?: AddressAvgOrderByAggregateInput
     _max?: AddressMaxOrderByAggregateInput
@@ -5930,6 +5929,7 @@ export namespace Prisma {
     city?: StringWithAggregatesFilter<"Address"> | string
     state?: StringWithAggregatesFilter<"Address"> | string
     zip_code?: StringWithAggregatesFilter<"Address"> | string
+    complement?: StringWithAggregatesFilter<"Address"> | string
   }
 
   export type ResidenceWhereInput = {
@@ -5937,34 +5937,34 @@ export namespace Prisma {
     OR?: ResidenceWhereInput[]
     NOT?: ResidenceWhereInput | ResidenceWhereInput[]
     id?: IntFilter<"Residence"> | number
-    complement?: StringFilter<"Residence"> | string
+    name?: StringNullableFilter<"Residence"> | string | null
     address_id?: IntFilter<"Residence"> | number
+    address?: XOR<AddressScalarRelationFilter, AddressWhereInput>
     residents?: ResidentListRelationFilter
-    address?: XOR<AddressNullableScalarRelationFilter, AddressWhereInput> | null
   }
 
   export type ResidenceOrderByWithRelationInput = {
     id?: SortOrder
-    complement?: SortOrder
+    name?: SortOrderInput | SortOrder
     address_id?: SortOrder
-    residents?: ResidentOrderByRelationAggregateInput
     address?: AddressOrderByWithRelationInput
+    residents?: ResidentOrderByRelationAggregateInput
   }
 
   export type ResidenceWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    complement?: string
+    name?: string
     AND?: ResidenceWhereInput | ResidenceWhereInput[]
     OR?: ResidenceWhereInput[]
     NOT?: ResidenceWhereInput | ResidenceWhereInput[]
     address_id?: IntFilter<"Residence"> | number
+    address?: XOR<AddressScalarRelationFilter, AddressWhereInput>
     residents?: ResidentListRelationFilter
-    address?: XOR<AddressNullableScalarRelationFilter, AddressWhereInput> | null
-  }, "id" | "complement">
+  }, "id" | "name">
 
   export type ResidenceOrderByWithAggregationInput = {
     id?: SortOrder
-    complement?: SortOrder
+    name?: SortOrderInput | SortOrder
     address_id?: SortOrder
     _count?: ResidenceCountOrderByAggregateInput
     _avg?: ResidenceAvgOrderByAggregateInput
@@ -5978,7 +5978,7 @@ export namespace Prisma {
     OR?: ResidenceScalarWhereWithAggregatesInput[]
     NOT?: ResidenceScalarWhereWithAggregatesInput | ResidenceScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Residence"> | number
-    complement?: StringWithAggregatesFilter<"Residence"> | string
+    name?: StringNullableWithAggregatesFilter<"Residence"> | string | null
     address_id?: IntWithAggregatesFilter<"Residence"> | number
   }
 
@@ -5994,8 +5994,8 @@ export namespace Prisma {
     password?: StringFilter<"Resident"> | string
     staff_id?: IntFilter<"Resident"> | number
     residence_id?: IntFilter<"Resident"> | number
-    staff?: XOR<StaffScalarRelationFilter, StaffWhereInput>
     residence?: XOR<ResidenceScalarRelationFilter, ResidenceWhereInput>
+    staff?: XOR<StaffScalarRelationFilter, StaffWhereInput>
   }
 
   export type ResidentOrderByWithRelationInput = {
@@ -6007,8 +6007,8 @@ export namespace Prisma {
     password?: SortOrder
     staff_id?: SortOrder
     residence_id?: SortOrder
-    staff?: StaffOrderByWithRelationInput
     residence?: ResidenceOrderByWithRelationInput
+    staff?: StaffOrderByWithRelationInput
   }
 
   export type ResidentWhereUniqueInput = Prisma.AtLeast<{
@@ -6023,8 +6023,8 @@ export namespace Prisma {
     phone?: StringFilter<"Resident"> | string
     password?: StringFilter<"Resident"> | string
     residence_id?: IntFilter<"Resident"> | number
-    staff?: XOR<StaffScalarRelationFilter, StaffWhereInput>
     residence?: XOR<ResidenceScalarRelationFilter, ResidenceWhereInput>
+    staff?: XOR<StaffScalarRelationFilter, StaffWhereInput>
   }, "id" | "email" | "staff_id">
 
   export type ResidentOrderByWithAggregationInput = {
@@ -6119,6 +6119,7 @@ export namespace Prisma {
     city: string
     state: string
     zip_code: string
+    complement: string
     residences?: ResidenceCreateNestedManyWithoutAddressInput
     staff?: StaffCreateNestedManyWithoutAddressInput
   }
@@ -6131,6 +6132,7 @@ export namespace Prisma {
     city: string
     state: string
     zip_code: string
+    complement: string
     residences?: ResidenceUncheckedCreateNestedManyWithoutAddressInput
     staff?: StaffUncheckedCreateNestedManyWithoutAddressInput
   }
@@ -6142,6 +6144,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
     residences?: ResidenceUpdateManyWithoutAddressNestedInput
     staff?: StaffUpdateManyWithoutAddressNestedInput
   }
@@ -6154,6 +6157,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
     residences?: ResidenceUncheckedUpdateManyWithoutAddressNestedInput
     staff?: StaffUncheckedUpdateManyWithoutAddressNestedInput
   }
@@ -6166,6 +6170,7 @@ export namespace Prisma {
     city: string
     state: string
     zip_code: string
+    complement: string
   }
 
   export type AddressUpdateManyMutationInput = {
@@ -6175,6 +6180,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
   }
 
   export type AddressUncheckedUpdateManyInput = {
@@ -6185,47 +6191,48 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
   }
 
   export type ResidenceCreateInput = {
-    complement: string
+    name?: string | null
+    address: AddressCreateNestedOneWithoutResidencesInput
     residents?: ResidentCreateNestedManyWithoutResidenceInput
-    address?: AddressCreateNestedOneWithoutResidencesInput
   }
 
   export type ResidenceUncheckedCreateInput = {
     id?: number
-    complement: string
+    name?: string | null
     address_id: number
     residents?: ResidentUncheckedCreateNestedManyWithoutResidenceInput
   }
 
   export type ResidenceUpdateInput = {
-    complement?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: AddressUpdateOneRequiredWithoutResidencesNestedInput
     residents?: ResidentUpdateManyWithoutResidenceNestedInput
-    address?: AddressUpdateOneWithoutResidencesNestedInput
   }
 
   export type ResidenceUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    complement?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     address_id?: IntFieldUpdateOperationsInput | number
     residents?: ResidentUncheckedUpdateManyWithoutResidenceNestedInput
   }
 
   export type ResidenceCreateManyInput = {
     id?: number
-    complement: string
+    name?: string | null
     address_id: number
   }
 
   export type ResidenceUpdateManyMutationInput = {
-    complement?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ResidenceUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    complement?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     address_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -6235,8 +6242,8 @@ export namespace Prisma {
     phone: string
     email: string
     password: string
-    staff: StaffCreateNestedOneWithoutResidentToStaffInput
     residence: ResidenceCreateNestedOneWithoutResidentsInput
+    staff: StaffCreateNestedOneWithoutResidentToStaffInput
   }
 
   export type ResidentUncheckedCreateInput = {
@@ -6256,8 +6263,8 @@ export namespace Prisma {
     phone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    staff?: StaffUpdateOneRequiredWithoutResidentToStaffNestedInput
     residence?: ResidenceUpdateOneRequiredWithoutResidentsNestedInput
+    staff?: StaffUpdateOneRequiredWithoutResidentToStaffNestedInput
   }
 
   export type ResidentUncheckedUpdateInput = {
@@ -6403,6 +6410,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
+    complement?: SortOrder
   }
 
   export type AddressAvgOrderByAggregateInput = {
@@ -6417,6 +6425,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
+    complement?: SortOrder
   }
 
   export type AddressMinOrderByAggregateInput = {
@@ -6427,6 +6436,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     zip_code?: SortOrder
+    complement?: SortOrder
   }
 
   export type AddressSumOrderByAggregateInput = {
@@ -6466,15 +6476,34 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type AddressScalarRelationFilter = {
+    is?: AddressWhereInput
+    isNot?: AddressWhereInput
+  }
+
   export type ResidentListRelationFilter = {
     every?: ResidentWhereInput
     some?: ResidentWhereInput
     none?: ResidentWhereInput
   }
 
-  export type AddressNullableScalarRelationFilter = {
-    is?: AddressWhereInput | null
-    isNot?: AddressWhereInput | null
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type ResidentOrderByRelationAggregateInput = {
@@ -6483,7 +6512,7 @@ export namespace Prisma {
 
   export type ResidenceCountOrderByAggregateInput = {
     id?: SortOrder
-    complement?: SortOrder
+    name?: SortOrder
     address_id?: SortOrder
   }
 
@@ -6494,13 +6523,13 @@ export namespace Prisma {
 
   export type ResidenceMaxOrderByAggregateInput = {
     id?: SortOrder
-    complement?: SortOrder
+    name?: SortOrder
     address_id?: SortOrder
   }
 
   export type ResidenceMinOrderByAggregateInput = {
     id?: SortOrder
-    complement?: SortOrder
+    name?: SortOrder
     address_id?: SortOrder
   }
 
@@ -6509,14 +6538,31 @@ export namespace Prisma {
     address_id?: SortOrder
   }
 
-  export type StaffScalarRelationFilter = {
-    is?: StaffWhereInput
-    isNot?: StaffWhereInput
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type ResidenceScalarRelationFilter = {
     is?: ResidenceWhereInput
     isNot?: ResidenceWhereInput
+  }
+
+  export type StaffScalarRelationFilter = {
+    is?: StaffWhereInput
+    isNot?: StaffWhereInput
   }
 
   export type ResidentCountOrderByAggregateInput = {
@@ -6585,9 +6631,9 @@ export namespace Prisma {
     isNot?: ResidentWhereInput | null
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
+  export type AddressNullableScalarRelationFilter = {
+    is?: AddressWhereInput | null
+    isNot?: AddressWhereInput | null
   }
 
   export type StaffCountOrderByAggregateInput = {
@@ -6741,6 +6787,12 @@ export namespace Prisma {
     deleteMany?: StaffScalarWhereInput | StaffScalarWhereInput[]
   }
 
+  export type AddressCreateNestedOneWithoutResidencesInput = {
+    create?: XOR<AddressCreateWithoutResidencesInput, AddressUncheckedCreateWithoutResidencesInput>
+    connectOrCreate?: AddressCreateOrConnectWithoutResidencesInput
+    connect?: AddressWhereUniqueInput
+  }
+
   export type ResidentCreateNestedManyWithoutResidenceInput = {
     create?: XOR<ResidentCreateWithoutResidenceInput, ResidentUncheckedCreateWithoutResidenceInput> | ResidentCreateWithoutResidenceInput[] | ResidentUncheckedCreateWithoutResidenceInput[]
     connectOrCreate?: ResidentCreateOrConnectWithoutResidenceInput | ResidentCreateOrConnectWithoutResidenceInput[]
@@ -6748,17 +6800,23 @@ export namespace Prisma {
     connect?: ResidentWhereUniqueInput | ResidentWhereUniqueInput[]
   }
 
-  export type AddressCreateNestedOneWithoutResidencesInput = {
-    create?: XOR<AddressCreateWithoutResidencesInput, AddressUncheckedCreateWithoutResidencesInput>
-    connectOrCreate?: AddressCreateOrConnectWithoutResidencesInput
-    connect?: AddressWhereUniqueInput
-  }
-
   export type ResidentUncheckedCreateNestedManyWithoutResidenceInput = {
     create?: XOR<ResidentCreateWithoutResidenceInput, ResidentUncheckedCreateWithoutResidenceInput> | ResidentCreateWithoutResidenceInput[] | ResidentUncheckedCreateWithoutResidenceInput[]
     connectOrCreate?: ResidentCreateOrConnectWithoutResidenceInput | ResidentCreateOrConnectWithoutResidenceInput[]
     createMany?: ResidentCreateManyResidenceInputEnvelope
     connect?: ResidentWhereUniqueInput | ResidentWhereUniqueInput[]
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type AddressUpdateOneRequiredWithoutResidencesNestedInput = {
+    create?: XOR<AddressCreateWithoutResidencesInput, AddressUncheckedCreateWithoutResidencesInput>
+    connectOrCreate?: AddressCreateOrConnectWithoutResidencesInput
+    upsert?: AddressUpsertWithoutResidencesInput
+    connect?: AddressWhereUniqueInput
+    update?: XOR<XOR<AddressUpdateToOneWithWhereWithoutResidencesInput, AddressUpdateWithoutResidencesInput>, AddressUncheckedUpdateWithoutResidencesInput>
   }
 
   export type ResidentUpdateManyWithoutResidenceNestedInput = {
@@ -6775,16 +6833,6 @@ export namespace Prisma {
     deleteMany?: ResidentScalarWhereInput | ResidentScalarWhereInput[]
   }
 
-  export type AddressUpdateOneWithoutResidencesNestedInput = {
-    create?: XOR<AddressCreateWithoutResidencesInput, AddressUncheckedCreateWithoutResidencesInput>
-    connectOrCreate?: AddressCreateOrConnectWithoutResidencesInput
-    upsert?: AddressUpsertWithoutResidencesInput
-    disconnect?: AddressWhereInput | boolean
-    delete?: AddressWhereInput | boolean
-    connect?: AddressWhereUniqueInput
-    update?: XOR<XOR<AddressUpdateToOneWithWhereWithoutResidencesInput, AddressUpdateWithoutResidencesInput>, AddressUncheckedUpdateWithoutResidencesInput>
-  }
-
   export type ResidentUncheckedUpdateManyWithoutResidenceNestedInput = {
     create?: XOR<ResidentCreateWithoutResidenceInput, ResidentUncheckedCreateWithoutResidenceInput> | ResidentCreateWithoutResidenceInput[] | ResidentUncheckedCreateWithoutResidenceInput[]
     connectOrCreate?: ResidentCreateOrConnectWithoutResidenceInput | ResidentCreateOrConnectWithoutResidenceInput[]
@@ -6799,24 +6847,16 @@ export namespace Prisma {
     deleteMany?: ResidentScalarWhereInput | ResidentScalarWhereInput[]
   }
 
-  export type StaffCreateNestedOneWithoutResidentToStaffInput = {
-    create?: XOR<StaffCreateWithoutResidentToStaffInput, StaffUncheckedCreateWithoutResidentToStaffInput>
-    connectOrCreate?: StaffCreateOrConnectWithoutResidentToStaffInput
-    connect?: StaffWhereUniqueInput
-  }
-
   export type ResidenceCreateNestedOneWithoutResidentsInput = {
     create?: XOR<ResidenceCreateWithoutResidentsInput, ResidenceUncheckedCreateWithoutResidentsInput>
     connectOrCreate?: ResidenceCreateOrConnectWithoutResidentsInput
     connect?: ResidenceWhereUniqueInput
   }
 
-  export type StaffUpdateOneRequiredWithoutResidentToStaffNestedInput = {
+  export type StaffCreateNestedOneWithoutResidentToStaffInput = {
     create?: XOR<StaffCreateWithoutResidentToStaffInput, StaffUncheckedCreateWithoutResidentToStaffInput>
     connectOrCreate?: StaffCreateOrConnectWithoutResidentToStaffInput
-    upsert?: StaffUpsertWithoutResidentToStaffInput
     connect?: StaffWhereUniqueInput
-    update?: XOR<XOR<StaffUpdateToOneWithWhereWithoutResidentToStaffInput, StaffUpdateWithoutResidentToStaffInput>, StaffUncheckedUpdateWithoutResidentToStaffInput>
   }
 
   export type ResidenceUpdateOneRequiredWithoutResidentsNestedInput = {
@@ -6825,6 +6865,14 @@ export namespace Prisma {
     upsert?: ResidenceUpsertWithoutResidentsInput
     connect?: ResidenceWhereUniqueInput
     update?: XOR<XOR<ResidenceUpdateToOneWithWhereWithoutResidentsInput, ResidenceUpdateWithoutResidentsInput>, ResidenceUncheckedUpdateWithoutResidentsInput>
+  }
+
+  export type StaffUpdateOneRequiredWithoutResidentToStaffNestedInput = {
+    create?: XOR<StaffCreateWithoutResidentToStaffInput, StaffUncheckedCreateWithoutResidentToStaffInput>
+    connectOrCreate?: StaffCreateOrConnectWithoutResidentToStaffInput
+    upsert?: StaffUpsertWithoutResidentToStaffInput
+    connect?: StaffWhereUniqueInput
+    update?: XOR<XOR<StaffUpdateToOneWithWhereWithoutResidentToStaffInput, StaffUpdateWithoutResidentToStaffInput>, StaffUncheckedUpdateWithoutResidentToStaffInput>
   }
 
   export type ResidentCreateNestedOneWithoutStaffInput = {
@@ -6956,9 +7004,35 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
@@ -6970,6 +7044,11 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -7008,13 +7087,13 @@ export namespace Prisma {
   }
 
   export type ResidenceCreateWithoutAddressInput = {
-    complement: string
+    name?: string | null
     residents?: ResidentCreateNestedManyWithoutResidenceInput
   }
 
   export type ResidenceUncheckedCreateWithoutAddressInput = {
     id?: number
-    complement: string
+    name?: string | null
     residents?: ResidentUncheckedCreateNestedManyWithoutResidenceInput
   }
 
@@ -7070,7 +7149,7 @@ export namespace Prisma {
     OR?: ResidenceScalarWhereInput[]
     NOT?: ResidenceScalarWhereInput | ResidenceScalarWhereInput[]
     id?: IntFilter<"Residence"> | number
-    complement?: StringFilter<"Residence"> | string
+    name?: StringNullableFilter<"Residence"> | string | null
     address_id?: IntFilter<"Residence"> | number
   }
 
@@ -7098,6 +7177,34 @@ export namespace Prisma {
     admin_residence?: BoolFilter<"Staff"> | boolean
     admin_address?: BoolFilter<"Staff"> | boolean
     Address_id?: IntNullableFilter<"Staff"> | number | null
+  }
+
+  export type AddressCreateWithoutResidencesInput = {
+    street: string
+    number: string
+    district: string
+    city: string
+    state: string
+    zip_code: string
+    complement: string
+    staff?: StaffCreateNestedManyWithoutAddressInput
+  }
+
+  export type AddressUncheckedCreateWithoutResidencesInput = {
+    id?: number
+    street: string
+    number: string
+    district: string
+    city: string
+    state: string
+    zip_code: string
+    complement: string
+    staff?: StaffUncheckedCreateNestedManyWithoutAddressInput
+  }
+
+  export type AddressCreateOrConnectWithoutResidencesInput = {
+    where: AddressWhereUniqueInput
+    create: XOR<AddressCreateWithoutResidencesInput, AddressUncheckedCreateWithoutResidencesInput>
   }
 
   export type ResidentCreateWithoutResidenceInput = {
@@ -7128,30 +7235,38 @@ export namespace Prisma {
     data: ResidentCreateManyResidenceInput | ResidentCreateManyResidenceInput[]
   }
 
-  export type AddressCreateWithoutResidencesInput = {
-    street: string
-    number: string
-    district: string
-    city: string
-    state: string
-    zip_code: string
-    staff?: StaffCreateNestedManyWithoutAddressInput
-  }
-
-  export type AddressUncheckedCreateWithoutResidencesInput = {
-    id?: number
-    street: string
-    number: string
-    district: string
-    city: string
-    state: string
-    zip_code: string
-    staff?: StaffUncheckedCreateNestedManyWithoutAddressInput
-  }
-
-  export type AddressCreateOrConnectWithoutResidencesInput = {
-    where: AddressWhereUniqueInput
+  export type AddressUpsertWithoutResidencesInput = {
+    update: XOR<AddressUpdateWithoutResidencesInput, AddressUncheckedUpdateWithoutResidencesInput>
     create: XOR<AddressCreateWithoutResidencesInput, AddressUncheckedCreateWithoutResidencesInput>
+    where?: AddressWhereInput
+  }
+
+  export type AddressUpdateToOneWithWhereWithoutResidencesInput = {
+    where?: AddressWhereInput
+    data: XOR<AddressUpdateWithoutResidencesInput, AddressUncheckedUpdateWithoutResidencesInput>
+  }
+
+  export type AddressUpdateWithoutResidencesInput = {
+    street?: StringFieldUpdateOperationsInput | string
+    number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    state?: StringFieldUpdateOperationsInput | string
+    zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
+    staff?: StaffUpdateManyWithoutAddressNestedInput
+  }
+
+  export type AddressUncheckedUpdateWithoutResidencesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    street?: StringFieldUpdateOperationsInput | string
+    number?: StringFieldUpdateOperationsInput | string
+    district?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    state?: StringFieldUpdateOperationsInput | string
+    zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
+    staff?: StaffUncheckedUpdateManyWithoutAddressNestedInput
   }
 
   export type ResidentUpsertWithWhereUniqueWithoutResidenceInput = {
@@ -7184,36 +7299,20 @@ export namespace Prisma {
     residence_id?: IntFilter<"Resident"> | number
   }
 
-  export type AddressUpsertWithoutResidencesInput = {
-    update: XOR<AddressUpdateWithoutResidencesInput, AddressUncheckedUpdateWithoutResidencesInput>
-    create: XOR<AddressCreateWithoutResidencesInput, AddressUncheckedCreateWithoutResidencesInput>
-    where?: AddressWhereInput
+  export type ResidenceCreateWithoutResidentsInput = {
+    name?: string | null
+    address: AddressCreateNestedOneWithoutResidencesInput
   }
 
-  export type AddressUpdateToOneWithWhereWithoutResidencesInput = {
-    where?: AddressWhereInput
-    data: XOR<AddressUpdateWithoutResidencesInput, AddressUncheckedUpdateWithoutResidencesInput>
+  export type ResidenceUncheckedCreateWithoutResidentsInput = {
+    id?: number
+    name?: string | null
+    address_id: number
   }
 
-  export type AddressUpdateWithoutResidencesInput = {
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    state?: StringFieldUpdateOperationsInput | string
-    zip_code?: StringFieldUpdateOperationsInput | string
-    staff?: StaffUpdateManyWithoutAddressNestedInput
-  }
-
-  export type AddressUncheckedUpdateWithoutResidencesInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    street?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    district?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    state?: StringFieldUpdateOperationsInput | string
-    zip_code?: StringFieldUpdateOperationsInput | string
-    staff?: StaffUncheckedUpdateManyWithoutAddressNestedInput
+  export type ResidenceCreateOrConnectWithoutResidentsInput = {
+    where: ResidenceWhereUniqueInput
+    create: XOR<ResidenceCreateWithoutResidentsInput, ResidenceUncheckedCreateWithoutResidentsInput>
   }
 
   export type StaffCreateWithoutResidentToStaffInput = {
@@ -7234,20 +7333,26 @@ export namespace Prisma {
     create: XOR<StaffCreateWithoutResidentToStaffInput, StaffUncheckedCreateWithoutResidentToStaffInput>
   }
 
-  export type ResidenceCreateWithoutResidentsInput = {
-    complement: string
-    address?: AddressCreateNestedOneWithoutResidencesInput
-  }
-
-  export type ResidenceUncheckedCreateWithoutResidentsInput = {
-    id?: number
-    complement: string
-    address_id: number
-  }
-
-  export type ResidenceCreateOrConnectWithoutResidentsInput = {
-    where: ResidenceWhereUniqueInput
+  export type ResidenceUpsertWithoutResidentsInput = {
+    update: XOR<ResidenceUpdateWithoutResidentsInput, ResidenceUncheckedUpdateWithoutResidentsInput>
     create: XOR<ResidenceCreateWithoutResidentsInput, ResidenceUncheckedCreateWithoutResidentsInput>
+    where?: ResidenceWhereInput
+  }
+
+  export type ResidenceUpdateToOneWithWhereWithoutResidentsInput = {
+    where?: ResidenceWhereInput
+    data: XOR<ResidenceUpdateWithoutResidentsInput, ResidenceUncheckedUpdateWithoutResidentsInput>
+  }
+
+  export type ResidenceUpdateWithoutResidentsInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: AddressUpdateOneRequiredWithoutResidencesNestedInput
+  }
+
+  export type ResidenceUncheckedUpdateWithoutResidentsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    address_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type StaffUpsertWithoutResidentToStaffInput = {
@@ -7272,28 +7377,6 @@ export namespace Prisma {
     admin_residence?: BoolFieldUpdateOperationsInput | boolean
     admin_address?: BoolFieldUpdateOperationsInput | boolean
     Address_id?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type ResidenceUpsertWithoutResidentsInput = {
-    update: XOR<ResidenceUpdateWithoutResidentsInput, ResidenceUncheckedUpdateWithoutResidentsInput>
-    create: XOR<ResidenceCreateWithoutResidentsInput, ResidenceUncheckedCreateWithoutResidentsInput>
-    where?: ResidenceWhereInput
-  }
-
-  export type ResidenceUpdateToOneWithWhereWithoutResidentsInput = {
-    where?: ResidenceWhereInput
-    data: XOR<ResidenceUpdateWithoutResidentsInput, ResidenceUncheckedUpdateWithoutResidentsInput>
-  }
-
-  export type ResidenceUpdateWithoutResidentsInput = {
-    complement?: StringFieldUpdateOperationsInput | string
-    address?: AddressUpdateOneWithoutResidencesNestedInput
-  }
-
-  export type ResidenceUncheckedUpdateWithoutResidentsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    complement?: StringFieldUpdateOperationsInput | string
-    address_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type ResidentCreateWithoutStaffInput = {
@@ -7327,6 +7410,7 @@ export namespace Prisma {
     city: string
     state: string
     zip_code: string
+    complement: string
     residences?: ResidenceCreateNestedManyWithoutAddressInput
   }
 
@@ -7338,6 +7422,7 @@ export namespace Prisma {
     city: string
     state: string
     zip_code: string
+    complement: string
     residences?: ResidenceUncheckedCreateNestedManyWithoutAddressInput
   }
 
@@ -7394,6 +7479,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
     residences?: ResidenceUpdateManyWithoutAddressNestedInput
   }
 
@@ -7405,12 +7491,13 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     zip_code?: StringFieldUpdateOperationsInput | string
+    complement?: StringFieldUpdateOperationsInput | string
     residences?: ResidenceUncheckedUpdateManyWithoutAddressNestedInput
   }
 
   export type ResidenceCreateManyAddressInput = {
     id?: number
-    complement: string
+    name?: string | null
   }
 
   export type StaffCreateManyAddressInput = {
@@ -7420,19 +7507,19 @@ export namespace Prisma {
   }
 
   export type ResidenceUpdateWithoutAddressInput = {
-    complement?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     residents?: ResidentUpdateManyWithoutResidenceNestedInput
   }
 
   export type ResidenceUncheckedUpdateWithoutAddressInput = {
     id?: IntFieldUpdateOperationsInput | number
-    complement?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
     residents?: ResidentUncheckedUpdateManyWithoutResidenceNestedInput
   }
 
   export type ResidenceUncheckedUpdateManyWithoutAddressInput = {
     id?: IntFieldUpdateOperationsInput | number
-    complement?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StaffUpdateWithoutAddressInput = {

@@ -1,4 +1,4 @@
 export class CreateResidenceDto {
-    complement: string;
+    name: string;
     address_id: number;
 }

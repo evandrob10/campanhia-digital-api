@@ -124,12 +124,13 @@ exports.Prisma.AddressScalarFieldEnum = {
   district: 'district',
   city: 'city',
   state: 'state',
-  zip_code: 'zip_code'
+  zip_code: 'zip_code',
+  complement: 'complement'
 };
 
 exports.Prisma.ResidenceScalarFieldEnum = {
   id: 'id',
-  complement: 'complement',
+  name: 'name',
   address_id: 'address_id'
 };
 

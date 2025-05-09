@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/client"
@@ -19,19 +13,20 @@ model Address {
   street     String
   number     String
   district   String
-  residences Residence[]
   city       String
   state      String
   zip_code   String
+  complement String
+  residences Residence[]
   staff      Staff[]
 }
 
 model Residence {
   id         Int        @id @default(autoincrement())
-  complement String     @unique
-  residents  Resident[]
-  address    Address?   @relation(fields: [address_id], references: [id])
+  name       String?    @unique
   address_id Int
+  address    Address    @relation(fields: [address_id], references: [id])
+  residents  Resident[]
 }
 
 model Resident {
@@ -41,18 +36,17 @@ model Resident {
   phone        String
   email        String    @unique
   password     String
-  staff        Staff     @relation(fields: [staff_id], references: [id])
   staff_id     Int       @unique
-  residence    Residence @relation(fields: [residence_id], references: [id])
   residence_id Int
+  residence    Residence @relation(fields: [residence_id], references: [id])
+  staff        Staff     @relation(fields: [staff_id], references: [id])
 }
 
 model Staff {
   id              Int       @id @default(autoincrement())
   admin_residence Boolean   @default(false)
   admin_address   Boolean   @default(false)
+  Address_id      Int?
   residentToStaff Resident?
-
-  Address    Address? @relation(fields: [Address_id], references: [id])
-  Address_id Int?
+  Address         Address?  @relation(fields: [Address_id], references: [id])
 }

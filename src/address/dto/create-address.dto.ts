@@ -5,4 +5,5 @@ export class CreateAddressDto {
     city: string;
     state: string;
     zip_code: string;
+    complement: string;
 }

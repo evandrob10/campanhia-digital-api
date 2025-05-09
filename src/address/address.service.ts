@@ -16,6 +16,7 @@ export class AddressService {
                 city: createAddressDto.city,
                 state: createAddressDto.state,
                 zip_code: createAddressDto.zip_code,
+                complement: createAddressDto.complement,
             },
         });
         return response;
@@ -38,6 +39,7 @@ export class AddressService {
                 district: updateAddressDto.district,
                 city: updateAddressDto.city,
                 zip_code: updateAddressDto.zip_code,
+                complement: updateAddressDto.complement,
             },
             where: {
                 id: id,
