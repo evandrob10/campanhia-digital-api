@@ -152,7 +152,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia digital\\campanhia-digital-api\\generated\\client",
+      "value": "/home/evandro-barros/projects/campanhia-digital/campanhia-digital-api/generated/client",
       "fromEnvVar": null
     },
     "config": {
@@ -161,17 +161,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia digital\\campanhia-digital-api\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/evandro-barros/projects/campanhia-digital/campanhia-digital-api/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.7.0",
@@ -180,11 +179,12 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "file:./dev.db"
+        "value": null
       }
     }
   },
