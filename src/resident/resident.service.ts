@@ -35,6 +35,12 @@ export class ResidentService {
         return await this.prisma.resident.findUnique({ where: { id: id } });
     }
 
+    async findEmail(email: string) {
+        return await this.prisma.resident.findUnique({
+            where: { email: email },
+        });
+    }
+
     async update(id: number, updateResidentDto: UpdateResidentDto) {
         const response = await this.prisma.resident.update({
             where: { id: id },

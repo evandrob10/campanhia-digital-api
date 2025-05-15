@@ -6,5 +6,6 @@ import { PrismaService } from 'src/prisma-client/prisma-client.service';
 @Module({
     controllers: [ResidentController],
     providers: [ResidentService, PrismaService],
+    exports: [ResidentService],
 })
 export class ResidentModule {}
