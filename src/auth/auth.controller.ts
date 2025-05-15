@@ -15,7 +15,15 @@ export class AuthController {
         const token = await this.authService.authenticate(dataLogin);
         res.cookie('token', token, {
             httpOnly: true,
+            sameSite: 'lax',
             maxAge: 1000 * 60 * 60,
+        });
+    }
+    @Post('/logout')
+    logout(@Res({ passthrough: true }) res: Response) {
+        return res.clearCookie('token', {
+            httpOnly: true,
+            sameSite: 'lax',
         });
     }
 }

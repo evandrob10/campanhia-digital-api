@@ -153,7 +153,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia-digital\\campanhia-digital-api\\generated\\client",
+      "value": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\campanhia-digital\\campanhia-digital-api\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -167,7 +167,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia-digital\\campanhia-digital-api\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\campanhia-digital\\campanhia-digital-api\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

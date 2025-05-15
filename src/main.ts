@@ -9,6 +9,6 @@ async function bootstrap() {
         origin: 'http://localhost:3000', // ou seu domínio do front
         credentials: true, // ⬅️ OBRIGATÓRIO para permitir cookies
     });
-    await app.listen(process.env.PORT ?? 3001);
+    await app.listen(3001);
 }
 bootstrap();
