@@ -1,7 +1,8 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, Post, Req, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/AuthDto';
-import { Response } from 'express';
+import { Request, Response } from 'express';
+import { TokenExpiredError } from '@nestjs/jwt';
 
 @Controller('auth')
 export class AuthController {
@@ -19,6 +20,28 @@ export class AuthController {
             maxAge: 1000 * 60 * 60,
         });
     }
+
+    @Post('/check-token')
+    async checkToken(
+        @Req() req: Request,
+        @Res({ passthrough: true }) res: Response,
+    ) {
+        const token: string = req?.cookies?.token as string;
+        try {
+            if (token) {
+                const user = await this.authService.verifyToken(token);
+                return user;
+            }
+        } catch (Error) {
+            if (Error instanceof TokenExpiredError)
+                res.clearCookie('token', {
+                    httpOnly: true,
+                    sameSite: 'lax',
+                });
+            return { message: 'token expirado' };
+        }
+    }
+
     @Post('/logout')
     logout(@Res({ passthrough: true }) res: Response) {
         return res.clearCookie('token', {

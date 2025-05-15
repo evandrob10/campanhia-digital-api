@@ -25,6 +25,10 @@ export class AuthService {
         }
     }
 
+    async verifyToken(token: string): Promise<object> {
+        return this.JwtService.verify(token);
+    }
+
     validatePassword(inputPassword: string, userPassword: string): boolean {
         return userPassword === inputPassword;
     }
