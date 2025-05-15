@@ -152,7 +152,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/home/evandro-barros/projects/campanhia-digital/campanhia-digital-api/generated/client",
+      "value": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia-digital\\campanhia-digital-api\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -161,12 +161,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/home/evandro-barros/projects/campanhia-digital/campanhia-digital-api/prisma/schema.prisma",
+    "sourceFilePath": "C:\\Users\\evand\\OneDrive\\Área de Trabalho\\Campanhia-digital\\campanhia-digital-api\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
