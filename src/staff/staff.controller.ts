@@ -1,7 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';
+import {
+    Controller,
+    Get,
+    Post,
+    Body,
+    Patch,
+    Param,
+    Query,
+} from '@nestjs/common';
 import { StaffService } from './staff.service';
 import { CreateStaffDto } from './dto/create-staff.dto';
-import { UpdateStaffDto } from './dto/update-staff.dto';
 
 @Controller('staff')
 export class StaffController {
@@ -17,8 +24,11 @@ export class StaffController {
         return this.staffService.findOne(+id);
     }
 
-    @Patch(':id')
-    update(@Param('id') id: string, @Body() updateStaffDto: UpdateStaffDto) {
-        return this.staffService.update(+id, updateStaffDto);
+    @Patch('update')
+    update(
+        @Query()
+        { address, id, newid }: { address: boolean; id: string; newid: string },
+    ) {
+        return this.staffService.update(address, +id, +newid);
     }
 }

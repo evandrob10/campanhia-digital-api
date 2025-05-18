@@ -2,23 +2,31 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthDto } from './dto/AuthDto';
 import { JwtService } from '@nestjs/jwt';
 import { ResidentService } from 'src/resident/resident.service';
+import { StaffService } from 'src/staff/staff.service';
 
 @Injectable()
 export class AuthService {
     constructor(
         private readonly resident: ResidentService,
         private readonly JwtService: JwtService,
+        private readonly Staff: StaffService,
     ) {}
 
     async authenticate(dataLogin: AuthDto) {
         const user = await this.resident.findEmail(dataLogin.email);
         if (user) {
+            const staff = await this.Staff.findOne(user.staff_id);
             const checkPassword = this.validatePassword(
                 dataLogin.password,
                 user.password,
             );
-            return checkPassword
-                ? this.generateToken(user.id, user?.name)
+            return checkPassword && staff
+                ? this.generateToken(
+                      user.id,
+                      user?.name,
+                      staff?.admin_address,
+                      staff?.admin_residence,
+                  )
                 : new UnauthorizedException();
         } else {
             return new UnauthorizedException();
@@ -33,8 +41,18 @@ export class AuthService {
         return userPassword === inputPassword;
     }
 
-    async generateToken(userID: number, userName: string) {
-        const payload = { sub: userID, username: userName };
+    async generateToken(
+        userID: number,
+        userName: string,
+        adminAddress: boolean,
+        adminResidence: boolean,
+    ) {
+        const payload = {
+            userID,
+            userName,
+            adminAddress,
+            adminResidence,
+        };
         const acess_token = await this.JwtService.signAsync(payload);
         return acess_token;
     }

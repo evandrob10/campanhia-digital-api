@@ -5,6 +5,8 @@ import { AuthController } from './auth.controller';
 
 import { ResidentService } from 'src/resident/resident.service';
 import { PrismaClientModule } from 'src/prisma-client/prisma-client.module';
+import { StaffModule } from 'src/staff/staff.module';
+import { StaffService } from 'src/staff/staff.service';
 
 @Module({
     imports: [
@@ -14,8 +16,9 @@ import { PrismaClientModule } from 'src/prisma-client/prisma-client.module';
             signOptions: { expiresIn: '1h' },
         }),
         PrismaClientModule,
+        StaffModule,
     ],
-    providers: [AuthService, ResidentService],
+    providers: [AuthService, ResidentService, StaffService],
     controllers: [AuthController],
     exports: [AuthService],
 })
