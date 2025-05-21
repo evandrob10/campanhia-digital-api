@@ -145,6 +145,15 @@ exports.Prisma.ResidentScalarFieldEnum = {
   residence_id: 'residence_id'
 };
 
+exports.Prisma.CallScalarFieldEnum = {
+  id: 'id',
+  VisitantIP: 'VisitantIP',
+  callActive: 'callActive',
+  callAnswered: 'callAnswered',
+  CallDateTime: 'CallDateTime',
+  ResidentID: 'ResidentID'
+};
+
 exports.Prisma.StaffScalarFieldEnum = {
   id: 'id',
   admin_residence: 'admin_residence',
@@ -167,6 +176,7 @@ exports.Prisma.ModelName = {
   Address: 'Address',
   Residence: 'Residence',
   Resident: 'Resident',
+  Call: 'Call',
   Staff: 'Staff'
 };
 

@@ -30,7 +30,7 @@ export class AuthService {
                   )
                 : new UnauthorizedException();
         } else {
-            return new UnauthorizedException();
+            new UnauthorizedException();
         }
     }
 

@@ -38,8 +38,20 @@ model Resident {
   password     String
   staff_id     Int       @unique
   residence_id Int
+  calls Call[] 
   residence    Residence @relation(fields: [residence_id], references: [id])
   staff        Staff     @relation(fields: [staff_id], references: [id])
+}
+
+model Call {
+  id            Int       @id @default(autoincrement())
+  VisitantIP    String?   // Pode ser null
+  callActive    Boolean   @default(true)
+  callAnswered  Boolean   @default(false)
+  CallDateTime  DateTime  @default(now())
+  ResidentID    Int
+
+  Resident      Resident  @relation(fields: [ResidentID], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
 
 model Staff {
