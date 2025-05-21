@@ -14,13 +14,11 @@ export class AuthService {
 
     async authenticate(dataLogin: AuthDto) {
         const user = await this.resident.findEmail(dataLogin.email);
-        if (user) {
+        const checkPassword =
+            user && this.validatePassword(dataLogin.password, user.password);
+        if (checkPassword) {
             const staff = await this.Staff.findOne(user.staff_id);
-            const checkPassword = this.validatePassword(
-                dataLogin.password,
-                user.password,
-            );
-            return checkPassword && staff
+            return staff
                 ? this.generateToken(
                       user.id,
                       user?.name,

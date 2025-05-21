@@ -19,6 +19,9 @@ export class AuthController {
                 sameSite: 'lax',
                 maxAge: 1000 * 60 * 60,
             });
+            return {
+                message: 'Acesso Autorizado!',
+            };
         } else {
             return {
                 message: 'Acesso negado!',
@@ -47,10 +50,12 @@ export class AuthController {
 
     @Post('/logout')
     logout(@Res({ passthrough: true }) res: Response) {
-        const response = res.clearCookie('token', {
+        res.clearCookie('token', {
             httpOnly: true,
             sameSite: 'lax',
         });
-        return response;
+        return {
+            message: 'Deslogado com sucesso!',
+        };
     }
 }
