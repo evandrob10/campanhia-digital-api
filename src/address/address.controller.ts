@@ -6,10 +6,12 @@ import {
     Patch,
     Param,
     Delete,
+    UseGuards,
 } from '@nestjs/common';
 import { AddressService } from './address.service';
 import { CreateAddressDto } from './dto/create-address.dto';
 import { UpdateAddressDto } from './dto/update-address.dto';
+import { AuthGuard } from 'src/auth/auth.guards';
 
 @Controller('address')
 export class AddressController {

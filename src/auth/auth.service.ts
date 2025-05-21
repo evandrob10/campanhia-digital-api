@@ -24,6 +24,7 @@ export class AuthService {
                 ? this.generateToken(
                       user.id,
                       user?.name,
+                      staff?.Address_id,
                       staff?.admin_address,
                       staff?.admin_residence,
                   )
@@ -44,12 +45,14 @@ export class AuthService {
     async generateToken(
         userID: number,
         userName: string,
+        addressID: number | null,
         adminAddress: boolean,
         adminResidence: boolean,
     ) {
         const payload = {
             userID,
             userName,
+            addressID,
             adminAddress,
             adminResidence,
         };
