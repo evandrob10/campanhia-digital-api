@@ -15,7 +15,17 @@ export class CallService {
         return response;
     }
 
-    async getAllCall(userID: number, VisitantIP: string) {
+    async getAllCallActive(userID: number) {
+        const response = await this.prisma.call.findMany({
+            where: {
+                ResidentID: userID,
+                callActive: true,
+            },
+        });
+        return response;
+    }
+
+    async CallVisitant(userID: number, VisitantIP: string) {
         const checkCall = await this.checkCallActive(userID, VisitantIP);
         if (checkCall) return checkCall;
     }
@@ -29,7 +39,9 @@ export class CallService {
                     callActive: true,
                 },
             });
-            if (!response) return await this.create(userID, VisitantIP);
+            if (!response.length) {
+                return await this.create(userID, VisitantIP);
+            }
             return response;
         }
     }

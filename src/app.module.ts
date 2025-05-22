@@ -7,6 +7,7 @@ import { ResidentModule } from './resident/resident.module';
 import { StaffModule } from './staff/staff.module';
 import { AuthModule } from './auth/auth.module';
 import { PrismaClientModule } from './prisma-client/prisma-client.module';
+import { CallModule } from './call/call.module';
 
 @Module({
     imports: [
@@ -19,6 +20,7 @@ import { PrismaClientModule } from './prisma-client/prisma-client.module';
         StaffModule,
         AuthModule,
         PrismaClientModule,
+        CallModule,
     ],
     controllers: [],
     providers: [PrismaService],
