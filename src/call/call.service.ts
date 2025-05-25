@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma-client/prisma-client.service';
+import { UpdateCallDto } from './dto/UpdateCallDto';
 
 @Injectable()
 export class CallService {
@@ -44,5 +45,14 @@ export class CallService {
             }
             return response;
         }
+    }
+
+    async updateCall(callID: number, dataCall: UpdateCallDto) {
+        return await this.prisma.call.update({
+            where: {
+                id: callID,
+            },
+            data: dataCall,
+        });
     }
 }
