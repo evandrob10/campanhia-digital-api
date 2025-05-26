@@ -1,6 +1,6 @@
 export class CreateCallDto {
     id?: number;
-    ip: string;
+    VisitantIP: string;
     callActive: boolean;
     callAnswered: boolean;
     CallDateTime: Date;

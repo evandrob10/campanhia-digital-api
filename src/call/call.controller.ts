@@ -1,6 +1,5 @@
 import { CallService } from './call.service';
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
-import { UpdateCallDto } from './dto/UpdateCallDto';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
 @Controller('call')
 export class CallController {
@@ -11,16 +10,16 @@ export class CallController {
         @Body('VisitantIP') VisitantIP: string,
         @Param('userID') userID: string,
     ) {
-        return this.CallService.CallVisitant(+userID, VisitantIP);
+        return this.CallService.create(+userID, VisitantIP);
+    }
+
+    @Get(':callID')
+    getCall(@Param(':callID') callID: string) {
+        return this.CallService.getCall(+callID);
     }
 
     @Get('/all_visitant/:userID')
-    getAllCallActive(userID: number) {
-        return this.CallService.getAllCallActive(userID);
-    }
-
-    @Patch(':callID')
-    updateCall(@Param('callID') callID: string, @Body() data: UpdateCallDto) {
-        return this.CallService.updateCall(+callID, data);
+    getAllCallActive(@Param('userID') userID: string) {
+        return this.CallService.getAllCallActive(+userID);
     }
 }
