@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma-client/prisma-client.service';
+import { UpdateCallDto } from './dto/UpdateCallDto';
 
 @Injectable()
 export class CallService {
@@ -9,7 +10,7 @@ export class CallService {
         try {
             const checkData = await this.checkDataCall(userID, VisitantIP);
             //Verifica se venho alguma call e retorna:
-            if (checkData) return checkData;
+            if (checkData && checkData?.length > 0) return checkData;
             //Cria a call caso não tenha nenhuma ativa:
             const response = await this.prisma.call.create({
                 data: {
@@ -63,5 +64,20 @@ export class CallService {
             },
         });
         return response;
+    }
+
+    async updateCall(callID: number, dataCall: UpdateCallDto) {
+        return this.prisma.call.update({
+            where: {
+                id: callID,
+            },
+            data: {
+                VisitantIP: dataCall.VisitantIP,
+                ResidentID: dataCall.ResidentID,
+                callActive: dataCall.callActive,
+                callAnswered: dataCall.callAnswered,
+                CallDateTime: dataCall.CallDateTime,
+            },
+        });
     }
 }
